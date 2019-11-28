@@ -3,16 +3,20 @@ sys.path.append("..")
 from models.fillingModel import FillingModel
 
 class FillingController:
-    def generate(patients, accountants):
+    def __init__(self):
+        self.model = FillingModel()
+
+    def generate(self, patients, accountants):
         print('generate')
-        model = FillingModel()
-        model.copy_gen_file()
+        self.model.copy_gen_file()
         return {"data": "generate"}
 
-    def execute():
+    def execute(self):
         print('execute')
+        self.model.execute_output()
         return {"data": "execute"}
 
-    def erase():
+    def erase(self):
         print('erase')
+        self.model.execute_erase()
         return {"data": "erase"}

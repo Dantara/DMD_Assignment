@@ -12,9 +12,9 @@ router.get('/query3')(QueryController.query3)
 router.get('/query4')(QueryController.query4)
 router.get('/query5')(QueryController.query5)
 
-router.post('/generate')(FillingController.generate)
-router.get('/execute')(FillingController.execute)
-router.get('/erase')(FillingController.erase)
+router.post('/generate')(FillingController().generate)
+router.get('/execute')(FillingController().execute)
+router.get('/erase')(FillingController().erase)
 
 @hug.static('/static')
 def static():
