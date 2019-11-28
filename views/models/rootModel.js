@@ -3,7 +3,7 @@ import $ from 'jquery';
 export default class RootModel{
     constructor(){}
 
-    sendPost(url, data){
+    sendPost(url, data, callback){
         let json_data = JSON.stringify(data);
 
         $.ajax({
@@ -11,19 +11,29 @@ export default class RootModel{
             url: url,
             data: json_data,
             success: (response) => {
-                console.log(response);
+                if(callback == null){
+                    console.log(response);
+                    return null;
+                }else{
+                    return callback(response);
+                }
             },
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
         });
     }
 
-    sendGet(url){
+    sendGet(url, callback){
         $.ajax({
             type: 'GET',
             url: url,
             success: (response) => {
-                console.log(response);
+                if(callback == null){
+                    console.log(response);
+                    return null;
+                }else{
+                    return callback(response);
+                }
             }
         });
     }

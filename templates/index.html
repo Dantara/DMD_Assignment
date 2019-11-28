@@ -52,8 +52,17 @@
                 </div>
             </div>
             <div id="read" class="row">
-                <div class="col-md-4 offset-sm-4 column">
-                    <h2>Read all tables:</h2>
+                <div id="table-exist" class="col-md-4 offset-sm-4 column">
+                    <h2>Table:</h2>
+                    <form>
+                        <div class="form-group">
+                            <select class="form-control" id="table-select" name="">
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div id="table-not-exist" class="col-md-4 offset-sm-4 column">
+                    <h2>There are no tables in database</h2>
                 </div>
             </div>
             <div id="config" class="row">

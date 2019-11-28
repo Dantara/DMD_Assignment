@@ -1,5 +1,8 @@
+import ReadController from '../controllers/readController.js';
+
 export default class ModeView{
     constructor(){
+        this.readController = new ReadController();
         this.mode_el = document.getElementById('mode');
         this.queries = document.getElementById('queries');
         this.filling = document.getElementById('filling');
@@ -47,6 +50,7 @@ export default class ModeView{
             break;
         }
         case 2: {
+            this.readController.getNames();
             this.setReadMode();
             break;
         }

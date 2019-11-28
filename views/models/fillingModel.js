@@ -8,15 +8,15 @@ export default class FillingModel{
     }
 
     sendGenerateRequest(data){
-        this.postSender('/generate', data);
+        this.postSender('/generate', data, null);
     }
 
     sendExecuteRequest(){
-        this.getSender('/execute');
+        this.getSender('/execute', null);
     }
 
     sendEraseRequest(){
-        this.getSender('/erase');
+        this.getSender('/erase', null);
     }
 
 }

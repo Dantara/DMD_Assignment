@@ -3,6 +3,7 @@ import hug
 from support.templates import get_template
 from controllers.queryController import QueryController
 from controllers.fillingController import FillingController
+from controllers.readController import ReadController
 
 router = hug.route.API(__name__)
 
@@ -15,6 +16,9 @@ router.get('/query5')(QueryController.query5)
 router.post('/generate')(FillingController().generate)
 router.get('/execute')(FillingController().execute)
 router.get('/erase')(FillingController().erase)
+
+router.get('/names')(ReadController().names)
+router.post('/table')(ReadController().table)
 
 @hug.static('/static')
 def static():
