@@ -22,6 +22,7 @@ export default class ReadController{
 
     updateTable(data){
         console.log(data);
+        ReadView.updateTable(data);
     }
 
 }

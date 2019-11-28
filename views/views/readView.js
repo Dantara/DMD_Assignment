@@ -34,6 +34,39 @@ export default class ReadView{
         }
     }
 
+    static updateTable(data){
+        let table = document.getElementById('read-table');
+        table.innerHTML = '';
+
+        let thead = document.createElement("thead");
+        let top_tr = document.createElement("tr");
+
+        data.columns.forEach((column) => {
+            let th = document.createElement("th");
+            let text = document.createTextNode(column);
+            th.appendChild(text);
+            top_tr.appendChild(th);
+        });
+
+        thead.appendChild(top_tr);
+        table.appendChild(thead);
+
+        let tbody = document.createElement("tbody");
+
+        data.rows.forEach((row) => {
+            let tr = document.createElement("tr");
+            row.forEach((el) => {
+                let th = document.createElement("th");
+                let text = document.createTextNode(el);
+                th.appendChild(text);
+                tr.appendChild(th);
+            });
+            tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+    }
+
     setAutoUpdate(){
         this.select_el.onchange = this.updateTable;
     }

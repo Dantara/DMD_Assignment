@@ -11,6 +11,5 @@ class ReadController:
 
     def table(self, name):
         print('table')
-        table = self.model.getTable(name)
-        print(table)
-        return {"table": table}
+        (rows, columns) = self.model.getTable(name)
+        return {"columns": columns, "rows": rows}

@@ -15,6 +15,8 @@ class ReadModel(RootModel):
     def getTable(self, name):
         cursor = self.conn.cursor();
         cursor.execute('SELECT * FROM ' + name + ' ;')
-        table = cursor.fetchall()
+        rows = cursor.fetchall()
+        cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = '" + name + "';")
+        columns = cursor.fetchall()
 
-        return table
+        return (rows, columns)
