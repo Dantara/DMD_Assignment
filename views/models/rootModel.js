@@ -4,14 +4,17 @@ export default class RootModel{
     constructor(){}
 
     sendPost(url, data){
+        let json_data = JSON.stringify(data);
+
         $.ajax({
             type: 'POST',
             url: url,
-            data: data,
+            data: json_data,
             success: (response) => {
                 console.log(response);
             },
-            dataType: 'json'
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
         });
     }
 

@@ -13,7 +13,7 @@ export default class QueryView{
     setQuery1(){
         let self = this;
 
-        this.query1.onclick = () =>{
+        this.query1.onclick = () => {
             self.controller.getQuery1();
         };
     }
@@ -21,7 +21,7 @@ export default class QueryView{
     setQuery2(){
         let self = this;
 
-        this.query2.onclick = () =>{
+        this.query2.onclick = () => {
             self.controller.getQuery2();
         };
     }
@@ -29,7 +29,7 @@ export default class QueryView{
     setQuery3(){
         let self = this;
 
-        this.query3.onclick = () =>{
+        this.query3.onclick = () => {
             self.controller.getQuery3();
         };
     }
@@ -37,7 +37,7 @@ export default class QueryView{
     setQuery4(){
         let self = this;
 
-        this.query4.onclick = () =>{
+        this.query4.onclick = () => {
             self.controller.getQuery4();
         };
     }
@@ -45,7 +45,7 @@ export default class QueryView{
     setQuery5(){
         let self = this;
 
-        this.query5.onclick = () =>{
+        this.query5.onclick = () => {
             self.controller.getQuery5();
         };
     }
