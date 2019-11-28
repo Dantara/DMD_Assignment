@@ -1,7 +1,12 @@
+import sys
+sys.path.append("..")
+from models.fillingModel import FillingModel
+
 class FillingController:
     def generate(patients, accountants):
         print('generate')
-        print(patients)
+        model = FillingModel()
+        model.copy_gen_file()
         return {"data": "generate"}
 
     def execute():
