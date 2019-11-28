@@ -22,6 +22,7 @@ class FillingModel:
         copyfile(self.gen_file, self.output_file)
 
     def execute_file(self, f):
+        self.conn.rollback()
         cursor = self.conn.cursor();
         cursor.execute(open(f, 'r').read())
         self.conn.commit()

@@ -104,13 +104,15 @@ CREATE TABLE PAYMENT(
   PRIMARY KEY(paid)
 );
 
-CREATE TABLE SCHEDULE( --added attribute that is not in the diagram
-                      schid Int NOT NULL,
-                      description Text,
-                      date time NOT NULL,
-                      id1 Int,--reference
-                      id2 Int,--reference
-                      PRIMARY KEY(schid)
+CREATE TABLE SCHEDULE(
+  --added attribute that is not in the diagram
+  schid Int NOT NULL,
+  description Text,
+  date_time date NOT NULL,
+  id1 Int,--reference
+  id2 Int,--reference
+  room Int NOT NULL,
+  PRIMARY KEY(schid)
 );
 
 CREATE TABLE LAB(
