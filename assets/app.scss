@@ -1,13 +1,46 @@
 @import "~bootstrap/scss/bootstrap";
+
 .col-md-12 column {  
     text-align:center;
 }
+
 .col-md-12 column form {
     display:inline-block;
 }
+
 #main-container{
     margin-top: 10px;
 }
+
 .row{
+    margin-top: 50px;
+}
+
+.btn-danger{
+    color: white !important;
+}
+
+form{
     margin-top: 10px;
 }
+
+.inline *{
+    display: inline;
+}
+
+label{
+    margin-right: 10px;
+}
+
+#filling{
+    display: none;
+}
+
+#read{
+    display: none;
+}
+
+#config{
+    display: none;
+}
+
