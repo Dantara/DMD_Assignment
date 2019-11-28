@@ -11,15 +11,50 @@ export default class QueryView{
     }
 
     setQuery1(){
-        console.log('view');
         let self = this;
-        function update(){
+
+        this.query1.onclick = () =>{
             self.controller.getQuery1();
-        }
-        this.query1.onclick = update;
+        };
+    }
+
+    setQuery2(){
+        let self = this;
+
+        this.query2.onclick = () =>{
+            self.controller.getQuery2();
+        };
+    }
+
+    setQuery3(){
+        let self = this;
+
+        this.query3.onclick = () =>{
+            self.controller.getQuery3();
+        };
+    }
+
+    setQuery4(){
+        let self = this;
+
+        this.query4.onclick = () =>{
+            self.controller.getQuery4();
+        };
+    }
+
+    setQuery5(){
+        let self = this;
+
+        this.query5.onclick = () =>{
+            self.controller.getQuery5();
+        };
     }
 
     setAllBtns(){
         this.setQuery1();
+        this.setQuery2();
+        this.setQuery3();
+        this.setQuery4();
+        this.setQuery5();
     }
 }

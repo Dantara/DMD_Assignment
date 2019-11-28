@@ -7,7 +7,23 @@ export default class QueryModel{
     }
 
     sendQuery1(){
-        console.log('model');
         this.sender('/query1');
     }
+
+    sendQuery2(){
+        this.sender('/query2');
+    }
+
+    sendQuery3(){
+        this.sender('/query3');
+    }
+
+    sendQuery4(){
+        this.sender('/query4');
+    }
+
+    sendQuery5(){
+        this.sender('/query5');
+    }
+
 }
