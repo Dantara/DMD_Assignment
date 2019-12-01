@@ -4,11 +4,11 @@
 CREATE TABLE PATIENT(
   pid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  phone_number Char(11),
+  phone_number Char(20),
   date_of_birth Date,
   medical_history Varchar(50),
   room_number INT,
-  email varchar(20),
+  email varchar(50),
   password Varchar(20),
   PRIMARY KEY(pid),
   UNIQUE(medical_history),
@@ -18,7 +18,7 @@ CREATE TABLE PATIENT(
 CREATE TABLE ACCOUNTANT(
   acid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email varchar(20),
+  email varchar(50),
   password Varchar(20),
   PRIMARY KEY(acid),
   UNIQUE(email)
@@ -43,7 +43,7 @@ CREATE TABLE ROOM(
 CREATE TABLE HOSPITAL_ADMINISTRATOR (
   adid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(adid),
   UNIQUE(email),
@@ -62,7 +62,7 @@ CREATE TABLE INVENTORY(
 CREATE TABLE LABORATORY_ASSISTANT (
   aid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL, 
   PRIMARY KEY(aid),
   UNIQUE(email)
@@ -71,7 +71,7 @@ CREATE TABLE LABORATORY_ASSISTANT (
 CREATE TABLE SYSTEM_ADMINISTRATOR(
   said SERIAL NOT NULL, 
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(said),
   UNIQUE(email)
@@ -81,7 +81,7 @@ CREATE TABLE DOCTOR(
   did SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   speciality Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(did),
   UNIQUE(email)
@@ -90,7 +90,7 @@ CREATE TABLE DOCTOR(
 CREATE TABLE NURSE(
   nid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(nid),
   UNIQUE(email)
@@ -263,147 +263,147 @@ CREATE TABLE WRITES_MESSAGE_NURSE(
   FOREIGN KEY(nurse_id) REFERENCES NURSE (nid),
   FOREIGN KEY(doctor_id) REFERENCES DOCTOR (did)  
 );
-INSERT INTO ACCOUNTANT VALUES ('Christian Braun', 'brianna84@yahoo.com', 'aSBQILzSuouZ');
-INSERT INTO PATIENT VALUES ('Christian Braun', '+7 370 705 15 59', '1959-08-22', 'brianna84@yahoo.com', 'Nearly my your especially require century occur.', '391', 'aSBQILzSuouZ');
-INSERT INTO ACCOUNTANT VALUES ('Anna Gonzales', 'garcialynn@hotmail.com', 'ekRrIcXhkUcExFVLzYry');
-INSERT INTO PATIENT VALUES ('Anna Gonzales', '87086488162', '2017-03-12', 'garcialynn@hotmail.com', 'Bar game friend many it lead.', '290', 'ekRrIcXhkUcExFVLzYry');
-INSERT INTO ACCOUNTANT VALUES ('Sean Dunn', 'joel23@hotmail.com', 'BnOLgnEJMtDaqYmASPBf');
-INSERT INTO PATIENT VALUES ('Sean Dunn', '+7 (153) 971-0080', '1956-02-16', 'joel23@hotmail.com', 'Than land list guess inside parent machine.', '194', 'BnOLgnEJMtDaqYmASPBf');
-INSERT INTO ACCOUNTANT VALUES ('Rebecca Young', 'tboyd@hotmail.com', 'YhIlAxDvFnq');
-INSERT INTO PATIENT VALUES ('Rebecca Young', '8 (963) 721-3719', '2006-12-28', 'tboyd@hotmail.com', 'Fine former wind door.', '66', 'YhIlAxDvFnq');
-INSERT INTO ACCOUNTANT VALUES ('Savannah Chavez', 'greenmary@hotmail.com', 'wMCkbGbQzwLrXe');
-INSERT INTO PATIENT VALUES ('Savannah Chavez', '8 (909) 695-97-26', '2011-12-02', 'greenmary@hotmail.com', 'Language already describe relate stuff audience.', '481', 'wMCkbGbQzwLrXe');
-INSERT INTO ACCOUNTANT VALUES ('Mr. Christopher Joyce', 'mpetersen@hotmail.com', 'XeGBgHsnI');
-INSERT INTO PATIENT VALUES ('Mr. Christopher Joyce', '8 (242) 751-82-51', '2002-08-12', 'mpetersen@hotmail.com', 'Ask although door financial.', '4', 'XeGBgHsnI');
-INSERT INTO ACCOUNTANT VALUES ('Ashley Banks', 'melvin39@yahoo.com', 'OVYzUywsVmfXmqu');
-INSERT INTO PATIENT VALUES ('Ashley Banks', '8 589 058 46 62', '1981-10-16', 'melvin39@yahoo.com', 'Choose north if next east officer worry.', '386', 'OVYzUywsVmfXmqu');
-INSERT INTO ACCOUNTANT VALUES ('Scott Fisher', 'jeffreywilliams@gmail.com', 'AprizrGIL');
-INSERT INTO PATIENT VALUES ('Scott Fisher', '88247990509', '1916-09-21', 'jeffreywilliams@gmail.com', 'Establish coach term personal.', '246', 'AprizrGIL');
-INSERT INTO ACCOUNTANT VALUES ('Kristi Tucker', 'fbray@hotmail.com', 'QVRqZgNAIfyqVdBwnr');
-INSERT INTO PATIENT VALUES ('Kristi Tucker', '+77386900166', '1963-09-17', 'fbray@hotmail.com', 'Rest subject include.', '325', 'QVRqZgNAIfyqVdBwnr');
-INSERT INTO ACCOUNTANT VALUES ('Christina Reed', 'lauraaguilar@hotmail.com', 'dNnMuREvIT');
-INSERT INTO PATIENT VALUES ('Christina Reed', '8 (701) 068-8273', '1984-04-29', 'lauraaguilar@hotmail.com', 'Always firm cut suggest.', '44', 'dNnMuREvIT');
-INSERT INTO ACCOUNTANT VALUES ('Christopher Watkins', 'webblori@hotmail.com', 'FDoAOBBJYZsDSh');
-INSERT INTO PATIENT VALUES ('Christopher Watkins', '8 (699) 668-94-07', '1995-10-14', 'webblori@hotmail.com', 'Certainly while beautiful military policy into.', '131', 'FDoAOBBJYZsDSh');
-INSERT INTO ACCOUNTANT VALUES ('Savannah Avila', 'johnbenjamin@gmail.com', 'mnEqrdwcrv');
-INSERT INTO PATIENT VALUES ('Savannah Avila', '8 036 632 8716', '2018-06-16', 'johnbenjamin@gmail.com', 'Defense contain month. Most scene happy decision.', '472', 'mnEqrdwcrv');
-INSERT INTO ACCOUNTANT VALUES ('Karen Taylor', 'annettepineda@yahoo.com', 'jioIDhFPkvOHopPifDY');
-INSERT INTO PATIENT VALUES ('Karen Taylor', '+76210382813', '1922-11-10', 'annettepineda@yahoo.com', 'Many activity space friend.', '361', 'jioIDhFPkvOHopPifDY');
-INSERT INTO ACCOUNTANT VALUES ('Theodore Thomas', 'david13@hotmail.com', 'cevvwUtiBZYwGo');
-INSERT INTO PATIENT VALUES ('Theodore Thomas', '83419043209', '1943-02-18', 'david13@hotmail.com', 'Cell physical grow.', '124', 'cevvwUtiBZYwGo');
-INSERT INTO ACCOUNTANT VALUES ('Linda Caldwell', 'anne02@gmail.com', 'hbHwjHGyJagEFZhR');
-INSERT INTO PATIENT VALUES ('Linda Caldwell', '8 (058) 741-90-07', '1906-12-27', 'anne02@gmail.com', 'Analysis relate catch black big fear.', '207', 'hbHwjHGyJagEFZhR');
-INSERT INTO ACCOUNTANT VALUES ('Sean Henderson', 'moyererica@hotmail.com', 'vvwCwUcd');
-INSERT INTO PATIENT VALUES ('Sean Henderson', '86469904506', '1937-10-21', 'moyererica@hotmail.com', 'Reality Congress coach difference statement.', '388', 'vvwCwUcd');
-INSERT INTO ACCOUNTANT VALUES ('Elizabeth Pham', 'tonya29@gmail.com', 'KZfmHSVcMQdldhRXYi');
-INSERT INTO PATIENT VALUES ('Elizabeth Pham', '+7 (026) 076-27-56', '1942-11-25', 'tonya29@gmail.com', 'Student agency test run travel card good.', '340', 'KZfmHSVcMQdldhRXYi');
-INSERT INTO ACCOUNTANT VALUES ('Samantha Young', 'carlos01@hotmail.com', 'KAUDxhnpRtLtGdsvsz');
-INSERT INTO PATIENT VALUES ('Samantha Young', '85826729066', '2002-07-19', 'carlos01@hotmail.com', 'Campaign age however remember.', '264', 'KAUDxhnpRtLtGdsvsz');
-INSERT INTO ACCOUNTANT VALUES ('Tara Suarez', 'iskinner@yahoo.com', 'VXhwBzseUPPYOcfCGxiG');
-INSERT INTO PATIENT VALUES ('Tara Suarez', '+7 (614) 451-85-25', '1932-12-28', 'iskinner@yahoo.com', 'Trial quite writer test democratic professional.', '182', 'VXhwBzseUPPYOcfCGxiG');
-INSERT INTO ACCOUNTANT VALUES ('Bobby Gonzalez', 'christopher61@hotmail.com', 'iZPPIbgPcVfdUSNT');
-INSERT INTO PATIENT VALUES ('Bobby Gonzalez', '+7 878 726 41 50', '1915-04-04', 'christopher61@hotmail.com', 'International case see give billion anyone.', '24', 'iZPPIbgPcVfdUSNT');
-INSERT INTO ACCOUNTANT VALUES ('Patricia Garrett', 'qlopez@yahoo.com', 'cgJwCnIbLEfwZOdmdD');
-INSERT INTO PATIENT VALUES ('Patricia Garrett', '+7 842 685 3906', '1990-12-30', 'qlopez@yahoo.com', 'Majority table share always because improve.', '57', 'cgJwCnIbLEfwZOdmdD');
-INSERT INTO ACCOUNTANT VALUES ('Julie Mathis', 'owalters@yahoo.com', 'cpWmISFmU');
-INSERT INTO PATIENT VALUES ('Julie Mathis', '82562765806', '2014-02-18', 'owalters@yahoo.com', 'Parent television artist fund agreement call.', '256', 'cpWmISFmU');
-INSERT INTO ACCOUNTANT VALUES ('Melissa Burke', 'garrettkelsey@gmail.com', 'IFdqTAUTL');
-INSERT INTO PATIENT VALUES ('Melissa Burke', '8 (205) 204-5790', '1948-06-28', 'garrettkelsey@gmail.com', 'Policy human claim even.', '27', 'IFdqTAUTL');
-INSERT INTO ACCOUNTANT VALUES ('Jesse Gibson', 'matthew93@gmail.com', 'BirzkCjn');
-INSERT INTO PATIENT VALUES ('Jesse Gibson', '8 397 102 73 15', '1931-02-09', 'matthew93@gmail.com', 'And plant recent top check friend century drop.', '284', 'BirzkCjn');
-INSERT INTO ACCOUNTANT VALUES ('Rebecca Powell', 'coxtimothy@hotmail.com', 'oRNAXwHuyTHuM');
-INSERT INTO PATIENT VALUES ('Rebecca Powell', '81677820671', '1950-10-16', 'coxtimothy@hotmail.com', 'Right far order city.', '54', 'oRNAXwHuyTHuM');
-INSERT INTO ACCOUNTANT VALUES ('Dan Morgan', 'rachel99@hotmail.com', 'plwhxziC');
-INSERT INTO PATIENT VALUES ('Dan Morgan', '8 (390) 997-40-04', '2004-09-18', 'rachel99@hotmail.com', 'Energy better one quite Mr conference understand.', '422', 'plwhxziC');
-INSERT INTO ACCOUNTANT VALUES ('Richard Gill', 'sandersderek@gmail.com', 'MflNMcUqNgVz');
-INSERT INTO PATIENT VALUES ('Richard Gill', '+7 171 589 0524', '1921-08-26', 'sandersderek@gmail.com', 'Hear involve standard hit.', '399', 'MflNMcUqNgVz');
-INSERT INTO ACCOUNTANT VALUES ('Matthew Ortiz', 'marcmeyers@hotmail.com', 'glGCEAtLgby');
-INSERT INTO PATIENT VALUES ('Matthew Ortiz', '+7 328 882 56 59', '1936-07-21', 'marcmeyers@hotmail.com', 'Want find win set hope house.', '191', 'glGCEAtLgby');
-INSERT INTO ACCOUNTANT VALUES ('James Malone', 'francisbrandy@hotmail.com', 'BSADoVJasYspRAlejf');
-INSERT INTO PATIENT VALUES ('James Malone', '+7 (243) 063-26-24', '1926-03-29', 'francisbrandy@hotmail.com', 'Whatever black standard admit adult put.', '355', 'BSADoVJasYspRAlejf');
-INSERT INTO ACCOUNTANT VALUES ('Joseph Thompson MD', 'ernestdavis@yahoo.com', 'mKmtamAD');
-INSERT INTO PATIENT VALUES ('Joseph Thompson MD', '83846753103', '1905-02-28', 'ernestdavis@yahoo.com', 'Behavior home time add.', '238', 'mKmtamAD');
-INSERT INTO ACCOUNTANT VALUES ('Ashley Bradley', 'hansenstanley@yahoo.com', 'kwSkZPRmS');
-INSERT INTO PATIENT VALUES ('Ashley Bradley', '+7 (956) 892-23-84', '2007-09-24', 'hansenstanley@yahoo.com', 'Major before will return tend leave require.', '338', 'kwSkZPRmS');
-INSERT INTO ACCOUNTANT VALUES ('Gina Mata', 'michael91@yahoo.com', 'lJdYVZYRgqgidFc');
-INSERT INTO PATIENT VALUES ('Gina Mata', '+7 (608) 414-8767', '2012-01-09', 'michael91@yahoo.com', 'Line quite provide player.', '359', 'lJdYVZYRgqgidFc');
-INSERT INTO ACCOUNTANT VALUES ('Mark Schultz', 'fmiller@gmail.com', 'cPiXtnsTyBRyRzJn');
-INSERT INTO PATIENT VALUES ('Mark Schultz', '8 (678) 022-50-69', '1909-05-03', 'fmiller@gmail.com', 'Its professor never half thing media we.', '110', 'cPiXtnsTyBRyRzJn');
-INSERT INTO ACCOUNTANT VALUES ('Jill Marshall', 'armstrongjohn@hotmail.com', 'UWvkDDHahZyE');
-INSERT INTO PATIENT VALUES ('Jill Marshall', '8 (712) 089-01-90', '1989-04-09', 'armstrongjohn@hotmail.com', 'College evening low lay lead.', '199', 'UWvkDDHahZyE');
-INSERT INTO ACCOUNTANT VALUES ('Allen Pineda', 'rholloway@gmail.com', 'MNsrXCGwQoIzTlYuOJ');
-INSERT INTO PATIENT VALUES ('Allen Pineda', '8 850 080 3412', '1975-01-13', 'rholloway@gmail.com', 'Fall partner charge chair often.', '401', 'MNsrXCGwQoIzTlYuOJ');
-INSERT INTO ACCOUNTANT VALUES ('Wesley Ayala', 'orobinson@yahoo.com', 'egjricMBWr');
-INSERT INTO HOSPITAL_ADMINISTRATOR VALUES ('Wesley Ayala', 'orobinson@yahoo.com', 'egjricMBWr');
-INSERT INTO ACCOUNTANT VALUES ('Teresa Gonzales', 'ysimmons@gmail.com', 'QrVnumXMYYbmBuLe');
-INSERT INTO HOSPITAL_ADMINISTRATOR VALUES ('Teresa Gonzales', 'ysimmons@gmail.com', 'QrVnumXMYYbmBuLe');
-INSERT INTO ACCOUNTANT VALUES ('Alex Brown', 'veronicalopez@hotmail.com', 'aHSqqkCdLlajgeRlXIf');
-INSERT INTO HOSPITAL_ADMINISTRATOR VALUES ('Alex Brown', 'veronicalopez@hotmail.com', 'aHSqqkCdLlajgeRlXIf');
-INSERT INTO ACCOUNTANT VALUES ('Casey Faulkner', 'gilbertshawn@yahoo.com', 'iaaXFVqDjTRGUmgJuhZT');
-INSERT INTO LABORATORY_ASSISTANT VALUES ('Casey Faulkner', 'gilbertshawn@yahoo.com', 'iaaXFVqDjTRGUmgJuhZT');
-INSERT INTO ACCOUNTANT VALUES ('Barbara Roberts', 'robyn58@hotmail.com', 'klygoJocDFWwwdpv');
-INSERT INTO LABORATORY_ASSISTANT VALUES ('Barbara Roberts', 'robyn58@hotmail.com', 'klygoJocDFWwwdpv');
-INSERT INTO ACCOUNTANT VALUES ('Tracy Long', 'qmiller@hotmail.com', 'IKYOEUFATChIZZJwCWf');
-INSERT INTO LABORATORY_ASSISTANT VALUES ('Tracy Long', 'qmiller@hotmail.com', 'IKYOEUFATChIZZJwCWf');
-INSERT INTO ACCOUNTANT VALUES ('Raymond Sanchez', 'tdickerson@gmail.com', 'IThTrtweCTi');
-INSERT INTO LABORATORY_ASSISTANT VALUES ('Raymond Sanchez', 'tdickerson@gmail.com', 'IThTrtweCTi');
-INSERT INTO ACCOUNTANT VALUES ('Kathryn Morgan', 'rachelpitts@yahoo.com', 'NsxiEmkUHdFppscOw');
-INSERT INTO LABORATORY_ASSISTANT VALUES ('Kathryn Morgan', 'rachelpitts@yahoo.com', 'NsxiEmkUHdFppscOw');
-INSERT INTO ACCOUNTANT VALUES ('Brandy James', 'sholland@hotmail.com', 'oNVTriIXxRLc');
-INSERT INTO SYSTEM_ADMINISTRATOR VALUES ('Brandy James', 'sholland@hotmail.com', 'oNVTriIXxRLc');
-INSERT INTO ACCOUNTANT VALUES ('Wendy Martinez', 'gmclaughlin@gmail.com', 'lMveMPdX');
-INSERT INTO SYSTEM_ADMINISTRATOR VALUES ('Wendy Martinez', 'gmclaughlin@gmail.com', 'lMveMPdX');
-INSERT INTO ACCOUNTANT VALUES ('Mr. Gene Hughes PhD', 'jeffrey47@yahoo.com', 'nsCqBZEyqHsZrsaidz');
-INSERT INTO SYSTEM_ADMINISTRATOR VALUES ('Mr. Gene Hughes PhD', 'jeffrey47@yahoo.com', 'nsCqBZEyqHsZrsaidz');
-INSERT INTO ACCOUNTANT VALUES ('John Estrada', 'brittanyjones@hotmail.com', 'DzrtEMnFbSjrnBkSbH');
-INSERT INTO SYSTEM_ADMINISTRATOR VALUES ('John Estrada', 'brittanyjones@hotmail.com', 'DzrtEMnFbSjrnBkSbH');
-INSERT INTO ACCOUNTANT VALUES ('Melissa Garcia', 'kara23@hotmail.com', 'hWDXKAzHwODpckGXd');
-INSERT INTO DOCTOR VALUES ('Melissa Garcia', 'kara23@hotmail.com', 'hWDXKAzHwODpckGXd', 'diagnostic radiology');
-INSERT INTO ACCOUNTANT VALUES ('Jennifer Smith', 'mcguiresarah@hotmail.com', 'idPmImuckeXNtMepPF');
-INSERT INTO DOCTOR VALUES ('Jennifer Smith', 'mcguiresarah@hotmail.com', 'idPmImuckeXNtMepPF', 'emergency medicine');
-INSERT INTO ACCOUNTANT VALUES ('Jennifer Ramirez', 'mcdonaldgabriel@gmail.com', 'IHqNaFng');
-INSERT INTO DOCTOR VALUES ('Jennifer Ramirez', 'mcdonaldgabriel@gmail.com', 'IHqNaFng', 'emergency medicine');
-INSERT INTO ACCOUNTANT VALUES ('Miss Shirley Holland', 'williamskatherine@yahoo.com', 'UfeZuaeTfqokk');
-INSERT INTO DOCTOR VALUES ('Miss Shirley Holland', 'williamskatherine@yahoo.com', 'UfeZuaeTfqokk', 'emergency medicine');
-INSERT INTO ACCOUNTANT VALUES ('Lindsey Williams', 'hpena@gmail.com', 'LDpatTOZuxFlyEZcu');
-INSERT INTO DOCTOR VALUES ('Lindsey Williams', 'hpena@gmail.com', 'LDpatTOZuxFlyEZcu', 'diagnostic radiology');
-INSERT INTO ACCOUNTANT VALUES ('Ronald Williams', 'rosemontgomery@hotmail.com', 'wYZxvXnTzWQqce');
-INSERT INTO DOCTOR VALUES ('Ronald Williams', 'rosemontgomery@hotmail.com', 'wYZxvXnTzWQqce', 'diagnostic radiology');
-INSERT INTO ACCOUNTANT VALUES ('Sarah Ingram', 'bbarron@hotmail.com', 'AleJHCkSMlpfqB');
-INSERT INTO DOCTOR VALUES ('Sarah Ingram', 'bbarron@hotmail.com', 'AleJHCkSMlpfqB', 'emergency medicine');
-INSERT INTO ACCOUNTANT VALUES ('Brandon Smith', 'brian91@gmail.com', 'midezrvZkEZGMEjz');
-INSERT INTO DOCTOR VALUES ('Brandon Smith', 'brian91@gmail.com', 'midezrvZkEZGMEjz', 'anesthesiology');
-INSERT INTO ACCOUNTANT VALUES ('Shannon Fowler', 'jonesbrandi@hotmail.com', 'vzANMVLgzfeBTPTlGDR');
-INSERT INTO DOCTOR VALUES ('Shannon Fowler', 'jonesbrandi@hotmail.com', 'vzANMVLgzfeBTPTlGDR', 'diagnostic radiology');
-INSERT INTO ACCOUNTANT VALUES ('Beth Phillips', 'cbaxter@gmail.com', 'jCUqVVMQVQItevIgHpPw');
-INSERT INTO DOCTOR VALUES ('Beth Phillips', 'cbaxter@gmail.com', 'jCUqVVMQVQItevIgHpPw', 'diagnostic radiology');
-INSERT INTO ACCOUNTANT VALUES ('Kelly Davis', 'ulucas@yahoo.com', 'zdOtZVlUqMffMGntRN');
-INSERT INTO NURSE VALUES ('Kelly Davis', 'ulucas@yahoo.com', 'zdOtZVlUqMffMGntRN');
-INSERT INTO ACCOUNTANT VALUES ('William James', 'leejeffrey@gmail.com', 'pYDooqFiQhnxaIwc');
-INSERT INTO NURSE VALUES ('William James', 'leejeffrey@gmail.com', 'pYDooqFiQhnxaIwc');
-INSERT INTO ACCOUNTANT VALUES ('Lauren Solis', 'bradley64@hotmail.com', 'HVkXuZms');
-INSERT INTO NURSE VALUES ('Lauren Solis', 'bradley64@hotmail.com', 'HVkXuZms');
-INSERT INTO ACCOUNTANT VALUES ('Yvonne Wilkinson', 'miguel85@yahoo.com', 'chqkbhSNQ');
-INSERT INTO NURSE VALUES ('Yvonne Wilkinson', 'miguel85@yahoo.com', 'chqkbhSNQ');
-INSERT INTO ACCOUNTANT VALUES ('Jeffery Leonard', 'ebond@yahoo.com', 'wJLzLPOqJxsDZV');
-INSERT INTO NURSE VALUES ('Jeffery Leonard', 'ebond@yahoo.com', 'wJLzLPOqJxsDZV');
-INSERT INTO ACCOUNTANT VALUES ('Samantha Bright', 'patrick06@hotmail.com', 'TJFePBIoJuBKE');
-INSERT INTO NURSE VALUES ('Samantha Bright', 'patrick06@hotmail.com', 'TJFePBIoJuBKE');
-INSERT INTO ACCOUNTANT VALUES ('Julie Sanford', 'leecarl@gmail.com', 'MAzhDalKDpTfEnEm');
-INSERT INTO NURSE VALUES ('Julie Sanford', 'leecarl@gmail.com', 'MAzhDalKDpTfEnEm');
-INSERT INTO ACCOUNTANT VALUES ('Susan Barnes', 'moorejames@hotmail.com', 'hLmusNTSTSwhcEIsBsgb');
-INSERT INTO NURSE VALUES ('Susan Barnes', 'moorejames@hotmail.com', 'hLmusNTSTSwhcEIsBsgb');
-INSERT INTO ACCOUNTANT VALUES ('Darren Martin', 'vanessa15@hotmail.com', 'EeqRYadgCIt');
-INSERT INTO NURSE VALUES ('Darren Martin', 'vanessa15@hotmail.com', 'EeqRYadgCIt');
-INSERT INTO ACCOUNTANT VALUES ('Jonathan Jones', 'jacobhayden@gmail.com', 'vjNxZAPxErLKY');
-INSERT INTO NURSE VALUES ('Jonathan Jones', 'jacobhayden@gmail.com', 'vjNxZAPxErLKY');
-INSERT INTO ACCOUNTANT VALUES ('Sierra Williams', 'coreywall@yahoo.com', 'ljDIdnNRTRkRIZeX');
-INSERT INTO NURSE VALUES ('Sierra Williams', 'coreywall@yahoo.com', 'ljDIdnNRTRkRIZeX');
-INSERT INTO ACCOUNTANT VALUES ('Alyssa Landry', 'lopezryan@gmail.com', 'RibTgEaMnKVENCDBVY');
-INSERT INTO NURSE VALUES ('Alyssa Landry', 'lopezryan@gmail.com', 'RibTgEaMnKVENCDBVY');
-INSERT INTO ACCOUNTANT VALUES ('Laurie Jones', 'mooneyrichard@hotmail.com', 'HOIeabfEXfR');
-INSERT INTO NURSE VALUES ('Laurie Jones', 'mooneyrichard@hotmail.com', 'HOIeabfEXfR');
-INSERT INTO ACCOUNTANT VALUES ('Edward Rodriguez', 'udennis@yahoo.com', 'qJZoqXnBqouhBwBp');
-INSERT INTO NURSE VALUES ('Edward Rodriguez', 'udennis@yahoo.com', 'qJZoqXnBqouhBwBp');
-INSERT INTO ACCOUNTANT VALUES ('Kelsey Hunter', 'kreynolds@hotmail.com', 'DQrJVtLOdM');
-INSERT INTO NURSE VALUES ('Kelsey Hunter', 'kreynolds@hotmail.com', 'DQrJVtLOdM');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Joseph Clark', 'brewercarol@hotmail.com', 'FlRIxVpaUWok');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Joseph Clark', '8 943 209 1031', '1940-07-21', 'brewercarol@hotmail.com', 'Early thus leader thus human.', '406', 'FlRIxVpaUWok');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jeremy Robinson', 'whitesarah@hotmail.com', 'GtsNVgEHryYxngxKV');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Jeremy Robinson', '+7 343 553 5364', '1921-09-29', 'whitesarah@hotmail.com', 'Office fly major short type.', '433', 'GtsNVgEHryYxngxKV');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Angela Graham', 'jenny08@hotmail.com', 'sSSaQatWBSqvdPfFkqG');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Angela Graham', '87744564222', '1955-05-12', 'jenny08@hotmail.com', 'Upon available indeed parent prove would.', '460', 'sSSaQatWBSqvdPfFkqG');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Kimberly Parker', 'dawn71@gmail.com', 'aPfrjNBoJdg');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Kimberly Parker', '+74718625646', '2007-08-24', 'dawn71@gmail.com', 'Either space despite.', '77', 'aPfrjNBoJdg');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Rhonda Escobar MD', 'rromero@yahoo.com', 'rBDazhqtZ');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Rhonda Escobar MD', '+7 377 776 62 71', '1933-01-01', 'rromero@yahoo.com', 'Partner no yet large. Economic once government.', '237', 'rBDazhqtZ');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Joyce Anderson', 'stewartkim@hotmail.com', 'zaQrSyIptMdKoCCo');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Joyce Anderson', '+7 (986) 830-2777', '1984-06-30', 'stewartkim@hotmail.com', 'Impact cover southern here far.', '314', 'zaQrSyIptMdKoCCo');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Richard Murray', 'leenicole@gmail.com', 'zXQncwjGfvkFjjO');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Richard Murray', '+7 (399) 642-6381', '1952-06-18', 'leenicole@gmail.com', 'Role be people six.', '388', 'zXQncwjGfvkFjjO');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Alexander Romero', 'nbutler@yahoo.com', 'OKRGmXFFKI');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Alexander Romero', '+7 (812) 823-5356', '1948-02-12', 'nbutler@yahoo.com', 'Late agree month word. Rate turn will.', '435', 'OKRGmXFFKI');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Karen Novak', 'mitchellcraig@gmail.com', 'LqlUjBPeNSrD');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Karen Novak', '8 (080) 596-52-98', '2010-10-03', 'mitchellcraig@gmail.com', 'Statement mind again product church.', '136', 'LqlUjBPeNSrD');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Christopher Hanson', 'nathan10@yahoo.com', 'vNYBEnJWRzPPrh');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Christopher Hanson', '8 692 580 2730', '1911-12-19', 'nathan10@yahoo.com', 'Best respond child beyond develop current.', '424', 'vNYBEnJWRzPPrh');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Kim Nelson', 'brianestrada@hotmail.com', 'kwrvwquKprZZnVIKPym');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Kim Nelson', '8 579 593 80 60', '1932-01-05', 'brianestrada@hotmail.com', 'Man experience structure hold budget.', '466', 'kwrvwquKprZZnVIKPym');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Rachel Townsend', 'michelle37@yahoo.com', 'SdVmkUuNDFTIVUNGuFGG');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Rachel Townsend', '8 378 865 50 47', '2002-06-30', 'michelle37@yahoo.com', 'Door tough task every painting owner.', '180', 'SdVmkUuNDFTIVUNGuFGG');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jody Powers', 'nicholas16@gmail.com', 'ZuHrYIOfLyTbgkXy');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Jody Powers', '+77881410593', '1973-06-03', 'nicholas16@gmail.com', 'Skill especially not foot million into.', '17', 'ZuHrYIOfLyTbgkXy');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Sharon Edwards', 'david89@yahoo.com', 'WlJrNBfogkqPHtg');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Sharon Edwards', '+7 (250) 275-72-50', '1946-09-18', 'david89@yahoo.com', 'Southern much you candidate actually.', '212', 'WlJrNBfogkqPHtg');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Barbara Nguyen', 'idixon@yahoo.com', 'PpULIDnAdsIJSdRoOPgL');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Barbara Nguyen', '8 (998) 638-14-71', '2003-05-27', 'idixon@yahoo.com', 'Close else network instead group meet rise.', '136', 'PpULIDnAdsIJSdRoOPgL');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Laura Jones', 'cgreen@hotmail.com', 'JYHEoavofotN');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Laura Jones', '8 (892) 742-6870', '1908-01-02', 'cgreen@hotmail.com', 'Decision only because risk.', '69', 'JYHEoavofotN');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Natalie Clay', 'stephenswalter@yahoo.com', 'CDpoFSsYfGdfDoO');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Natalie Clay', '8 616 744 1411', '1975-06-06', 'stephenswalter@yahoo.com', 'Cover air on cup successful present young.', '113', 'CDpoFSsYfGdfDoO');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Alexis Patrick', 'frygarrett@hotmail.com', 'wIRBJFJXqorTJ');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Alexis Patrick', '+7 196 537 4111', '2007-07-27', 'frygarrett@hotmail.com', 'Through sell world thus four base.', '30', 'wIRBJFJXqorTJ');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Ana Graham', 'qallison@yahoo.com', 'ibEuFgWgBhDwgfa');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Ana Graham', '8 (720) 827-6023', '1941-12-04', 'qallison@yahoo.com', 'View expect turn keep east somebody white.', '82', 'ibEuFgWgBhDwgfa');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Brian Bailey', 'crystal63@hotmail.com', 'MBHTTeFQA');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Brian Bailey', '80971474517', '1954-04-22', 'crystal63@hotmail.com', 'Week father maybe far.', '278', 'MBHTTeFQA');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Joseph Lam', 'riveracarlos@gmail.com', 'GfHiZPyWSIlYAqNvNB');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Joseph Lam', '+7 895 469 6986', '1944-05-12', 'riveracarlos@gmail.com', 'Reduce writer response individual check clear.', '332', 'GfHiZPyWSIlYAqNvNB');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jeffery Smith', 'hollylewis@hotmail.com', 'KKihaimtEgqNI');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Jeffery Smith', '+7 (877) 090-82-06', '2008-07-09', 'hollylewis@hotmail.com', 'Woman investment point fish reason herself.', '38', 'KKihaimtEgqNI');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Joshua Barrera', 'donnathomas@yahoo.com', 'WaQKgXbgVyiRLiQYiP');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Joshua Barrera', '8 969 059 82 49', '1979-10-09', 'donnathomas@yahoo.com', 'Pick against friend agency myself down.', '405', 'WaQKgXbgVyiRLiQYiP');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Gabriela Allen', 'jennifercruz@gmail.com', 'xSLCqznSlrZfd');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Gabriela Allen', '85815976094', '1985-02-12', 'jennifercruz@gmail.com', 'Peace huge central expert nice reason.', '171', 'xSLCqznSlrZfd');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Joshua Bernard', 'andreweaton@hotmail.com', 'qvDJRoLkUQuJFtZ');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Joshua Bernard', '8 620 595 35 42', '1983-03-09', 'andreweaton@hotmail.com', 'World stage field gun behavior your reduce.', '305', 'qvDJRoLkUQuJFtZ');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Steven Nicholson', 'petersmelissa@hotmail.com', 'RyQfzIlufrV');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Steven Nicholson', '8 261 744 5479', '1905-11-14', 'petersmelissa@hotmail.com', 'Ok win miss nearly. True large think shake.', '64', 'RyQfzIlufrV');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Sherry Soto', 'ccastillo@hotmail.com', 'qmdWfSwIlIkpk');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Sherry Soto', '8 (697) 980-78-17', '1912-09-20', 'ccastillo@hotmail.com', 'Worry part shoulder tough red.', '381', 'qmdWfSwIlIkpk');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Kevin Ramirez', 'rebeccarodriguez@hotmail.com', 'FeRZJtUaigU');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Kevin Ramirez', '8 (228) 821-1605', '1999-05-05', 'rebeccarodriguez@hotmail.com', 'Every live specific day can education sell.', '95', 'FeRZJtUaigU');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Anthony Murray', 'morgandouglas@gmail.com', 'pUlrUCUSXFddmMqfK');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Anthony Murray', '+70146670887', '1990-02-26', 'morgandouglas@gmail.com', 'Drop physical performance.', '45', 'pUlrUCUSXFddmMqfK');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Patrick Whitaker', 'braunsharon@yahoo.com', 'yzzjkSuHHZQxzD');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Patrick Whitaker', '8 908 172 99 02', '1926-12-11', 'braunsharon@yahoo.com', 'Kind past catch gun.', '469', 'yzzjkSuHHZQxzD');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Kristina Elliott', 'harrisjeffrey@hotmail.com', 'CryPWfExwu');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Kristina Elliott', '+7 (277) 000-86-97', '1928-03-29', 'harrisjeffrey@hotmail.com', 'Case seat until business.', '55', 'CryPWfExwu');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Nathan Fowler', 'coxcrystal@yahoo.com', 'YROwUgMdKBRTTkaFNBAR');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Nathan Fowler', '+7 320 944 30 77', '2005-11-15', 'coxcrystal@yahoo.com', 'Fire there I successful time simply more child.', '440', 'YROwUgMdKBRTTkaFNBAR');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jessica House', 'lawrencemiller@gmail.com', 'frKnHXwsvHHznWdQF');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Jessica House', '8 916 914 0638', '1982-04-16', 'lawrencemiller@gmail.com', 'Loss four deal relationship since.', '366', 'frKnHXwsvHHznWdQF');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('David Stewart', 'ashley79@gmail.com', 'uUgeceIraqWMR');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('David Stewart', '8 (615) 696-9976', '2005-10-16', 'ashley79@gmail.com', 'Charge build rock national everyone sound.', '421', 'uUgeceIraqWMR');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Shirley Leon', 'thomasjones@yahoo.com', 'jssxVVNCBpfl');
+INSERT INTO PATIENT (name, phone_number, date_of_birth, email, medical_history, room_number, password) VALUES ('Shirley Leon', '+74476897282', '2016-12-01', 'thomasjones@yahoo.com', 'Expect friend make small wonder.', '6', 'jssxVVNCBpfl');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Patricia Dyer', 'john97@gmail.com', 'nKFRWjmkD');
+INSERT INTO HOSPITAL_ADMINISTRATOR (name, email, password) VALUES ('Patricia Dyer', 'john97@gmail.com', 'nKFRWjmkD');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Michael Vasquez', 'oritter@gmail.com', 'GJeicdrJoOgPg');
+INSERT INTO HOSPITAL_ADMINISTRATOR (name, email, password) VALUES ('Michael Vasquez', 'oritter@gmail.com', 'GJeicdrJoOgPg');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Kristin Bridges', 'davisroberto@yahoo.com', 'SvlMvzLwyJDVlVT');
+INSERT INTO HOSPITAL_ADMINISTRATOR (name, email, password) VALUES ('Kristin Bridges', 'davisroberto@yahoo.com', 'SvlMvzLwyJDVlVT');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Lori Phillips', 'olopez@hotmail.com', 'sbUdDtUeSSyFdNeaNSi');
+INSERT INTO LABORATORY_ASSISTANT (name, email, password) VALUES ('Lori Phillips', 'olopez@hotmail.com', 'sbUdDtUeSSyFdNeaNSi');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Natalie Allen DVM', 'duarteeduardo@gmail.com', 'ilSgKquoxFsmSaBXiZJ');
+INSERT INTO LABORATORY_ASSISTANT (name, email, password) VALUES ('Natalie Allen DVM', 'duarteeduardo@gmail.com', 'ilSgKquoxFsmSaBXiZJ');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Daniel Ferguson', 'carol56@gmail.com', 'hjqkOgbEBdVDAjzHH');
+INSERT INTO LABORATORY_ASSISTANT (name, email, password) VALUES ('Daniel Ferguson', 'carol56@gmail.com', 'hjqkOgbEBdVDAjzHH');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Leah Lewis', 'melissa86@gmail.com', 'wZISizxqUNPVqGyRhJXw');
+INSERT INTO LABORATORY_ASSISTANT (name, email, password) VALUES ('Leah Lewis', 'melissa86@gmail.com', 'wZISizxqUNPVqGyRhJXw');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jennifer Morrow', 'robert83@gmail.com', 'bAUdsPuvqRfnjw');
+INSERT INTO LABORATORY_ASSISTANT (name, email, password) VALUES ('Jennifer Morrow', 'robert83@gmail.com', 'bAUdsPuvqRfnjw');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('William Huynh', 'dennis57@hotmail.com', 'szosbcVNRTKF');
+INSERT INTO SYSTEM_ADMINISTRATOR (name, email, password) VALUES ('William Huynh', 'dennis57@hotmail.com', 'szosbcVNRTKF');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Shawn Hunt', 'levi50@gmail.com', 'MVihxovUR');
+INSERT INTO SYSTEM_ADMINISTRATOR (name, email, password) VALUES ('Shawn Hunt', 'levi50@gmail.com', 'MVihxovUR');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('James Ball', 'carrjose@hotmail.com', 'dOQuxfJONigKvrj');
+INSERT INTO SYSTEM_ADMINISTRATOR (name, email, password) VALUES ('James Ball', 'carrjose@hotmail.com', 'dOQuxfJONigKvrj');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Christopher Hernandez', 'mccormickcaitlin@gmail.com', 'sSMjWYdkNDperFPcF');
+INSERT INTO SYSTEM_ADMINISTRATOR (name, email, password) VALUES ('Christopher Hernandez', 'mccormickcaitlin@gmail.com', 'sSMjWYdkNDperFPcF');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Damon Gonzalez', 'kelly67@hotmail.com', 'WcffBTconinwesuaXZ');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Damon Gonzalez', 'kelly67@hotmail.com', 'WcffBTconinwesuaXZ', 'pediatrics');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Frank King II', 'chapmanchristine@yahoo.com', 'pdYoFdhfjlSWDicB');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Frank King II', 'chapmanchristine@yahoo.com', 'pdYoFdhfjlSWDicB', 'dermatology');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('John Foster', 'nataliepayne@hotmail.com', 'ojudGWLALkiXaoV');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('John Foster', 'nataliepayne@hotmail.com', 'ojudGWLALkiXaoV', 'emergency medicine');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jennifer Miller', 'erika83@hotmail.com', 'MjccWmPypiMODG');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Jennifer Miller', 'erika83@hotmail.com', 'MjccWmPypiMODG', 'diagnostic radiology');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Nicole Smith', 'destiny43@gmail.com', 'TwYhhlRVm');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Nicole Smith', 'destiny43@gmail.com', 'TwYhhlRVm', 'neurology');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Madison White', 'karafisher@gmail.com', 'fBdShESLJi');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Madison White', 'karafisher@gmail.com', 'fBdShESLJi', 'emergency medicine');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jaclyn Madden', 'charles16@hotmail.com', 'FAEXAxOeWfWRhn');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Jaclyn Madden', 'charles16@hotmail.com', 'FAEXAxOeWfWRhn', 'family medicine');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jon Clayton', 'richardsbrittney@yahoo.com', 'WAMhVjhT');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Jon Clayton', 'richardsbrittney@yahoo.com', 'WAMhVjhT', 'family medicine');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Tina Johnson', 'williamadams@gmail.com', 'GjuhQEnaHYaCgAKZmgMN');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Tina Johnson', 'williamadams@gmail.com', 'GjuhQEnaHYaCgAKZmgMN', 'pediatrics');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Alexandra Cooper', 'thomasbrittany@yahoo.com', 'QFIiUkHkl');
+INSERT INTO DOCTOR (name, email, password, speciality) VALUES ('Alexandra Cooper', 'thomasbrittany@yahoo.com', 'QFIiUkHkl', 'neurology');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Vernon Elliott', 'kimberly62@yahoo.com', 'UCRxrswXM');
+INSERT INTO NURSE (name, email, password) VALUES ('Vernon Elliott', 'kimberly62@yahoo.com', 'UCRxrswXM');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Alejandro Gonzalez', 'rayhaley@gmail.com', 'DwMeVkxHI');
+INSERT INTO NURSE (name, email, password) VALUES ('Alejandro Gonzalez', 'rayhaley@gmail.com', 'DwMeVkxHI');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Tracey Walker', 'paulclark@gmail.com', 'LndpwtjU');
+INSERT INTO NURSE (name, email, password) VALUES ('Tracey Walker', 'paulclark@gmail.com', 'LndpwtjU');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Jenna Ruiz', 'xsimon@yahoo.com', 'MgKiJiIKHWqTLV');
+INSERT INTO NURSE (name, email, password) VALUES ('Jenna Ruiz', 'xsimon@yahoo.com', 'MgKiJiIKHWqTLV');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Justin Morris', 'jameshart@gmail.com', 'NJdgRmTQb');
+INSERT INTO NURSE (name, email, password) VALUES ('Justin Morris', 'jameshart@gmail.com', 'NJdgRmTQb');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Michelle Fuller', 'melaniemartin@yahoo.com', 'kMJXsDHpbGFfCwreu');
+INSERT INTO NURSE (name, email, password) VALUES ('Michelle Fuller', 'melaniemartin@yahoo.com', 'kMJXsDHpbGFfCwreu');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Paul Jones', 'cole75@yahoo.com', 'zxjZqzjlNmPMBOziu');
+INSERT INTO NURSE (name, email, password) VALUES ('Paul Jones', 'cole75@yahoo.com', 'zxjZqzjlNmPMBOziu');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Christina Bullock', 'zbennett@yahoo.com', 'wjGbjLIIOmWCoScvE');
+INSERT INTO NURSE (name, email, password) VALUES ('Christina Bullock', 'zbennett@yahoo.com', 'wjGbjLIIOmWCoScvE');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Ronald Swanson', 'diana38@gmail.com', 'JBNBySewqKWy');
+INSERT INTO NURSE (name, email, password) VALUES ('Ronald Swanson', 'diana38@gmail.com', 'JBNBySewqKWy');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Daniel Decker', 'kristi08@hotmail.com', 'mtKMxnEQldOE');
+INSERT INTO NURSE (name, email, password) VALUES ('Daniel Decker', 'kristi08@hotmail.com', 'mtKMxnEQldOE');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Brandon Keller', 'bradley12@hotmail.com', 'ederbxmKOUGptSt');
+INSERT INTO NURSE (name, email, password) VALUES ('Brandon Keller', 'bradley12@hotmail.com', 'ederbxmKOUGptSt');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Karen Smith', 'yblake@yahoo.com', 'TAIJTnGBmxCVF');
+INSERT INTO NURSE (name, email, password) VALUES ('Karen Smith', 'yblake@yahoo.com', 'TAIJTnGBmxCVF');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Eric Sanchez', 'ryanlamb@gmail.com', 'jHEUrnwnH');
+INSERT INTO NURSE (name, email, password) VALUES ('Eric Sanchez', 'ryanlamb@gmail.com', 'jHEUrnwnH');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Marcus Hicks', 'lisagonzales@hotmail.com', 'pptsyCPqTQnQFn');
+INSERT INTO NURSE (name, email, password) VALUES ('Marcus Hicks', 'lisagonzales@hotmail.com', 'pptsyCPqTQnQFn');
+INSERT INTO ACCOUNTANT (name, email, password) VALUES ('Paul Brown', 'martinezlaura@gmail.com', 'KGbwdNuZgE');
+INSERT INTO NURSE (name, email, password) VALUES ('Paul Brown', 'martinezlaura@gmail.com', 'KGbwdNuZgE');

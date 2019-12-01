@@ -4,11 +4,11 @@
 CREATE TABLE PATIENT(
   pid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  phone_number Char(11),
+  phone_number Char(20),
   date_of_birth Date,
   medical_history Varchar(50),
   room_number INT,
-  email varchar(20),
+  email varchar(50),
   password Varchar(20),
   PRIMARY KEY(pid),
   UNIQUE(medical_history),
@@ -18,7 +18,7 @@ CREATE TABLE PATIENT(
 CREATE TABLE ACCOUNTANT(
   acid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email varchar(20),
+  email varchar(50),
   password Varchar(20),
   PRIMARY KEY(acid),
   UNIQUE(email)
@@ -43,7 +43,7 @@ CREATE TABLE ROOM(
 CREATE TABLE HOSPITAL_ADMINISTRATOR (
   adid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(adid),
   UNIQUE(email),
@@ -62,7 +62,7 @@ CREATE TABLE INVENTORY(
 CREATE TABLE LABORATORY_ASSISTANT (
   aid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL, 
   PRIMARY KEY(aid),
   UNIQUE(email)
@@ -71,7 +71,7 @@ CREATE TABLE LABORATORY_ASSISTANT (
 CREATE TABLE SYSTEM_ADMINISTRATOR(
   said SERIAL NOT NULL, 
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(said),
   UNIQUE(email)
@@ -81,7 +81,7 @@ CREATE TABLE DOCTOR(
   did SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   speciality Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(did),
   UNIQUE(email)
@@ -90,7 +90,7 @@ CREATE TABLE DOCTOR(
 CREATE TABLE NURSE(
   nid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
-  email Varchar(20) NOT NULL,
+  email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(nid),
   UNIQUE(email)

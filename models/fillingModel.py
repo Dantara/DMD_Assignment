@@ -31,7 +31,11 @@ class FillingModel(RootModel):
         self.execute_file(self.erase_file)
 
     def dict_to_sql(self, dictionary, table_name):
-        sql = "INSERT INTO " + table_name + " VALUES ("
+        sql = "INSERT INTO " + table_name + " ("
+        for key in dictionary:
+            sql = sql + "" + key + ", "
+        sql = sql[:-2]
+        sql += ') VALUES ('
         for key in dictionary:
             sql = sql + "'" + str(dictionary[key]) + "', "
         sql = sql[:-2]
