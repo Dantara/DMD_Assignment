@@ -2,7 +2,7 @@
 
 -- DROP DATABASE "DMD Phase 3";
 CREATE TABLE PATIENT(
-  pid INT NOT NULL,
+  pid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   phone_number Char(11),
   date_of_birth Date,
@@ -16,7 +16,7 @@ CREATE TABLE PATIENT(
 );
 
 CREATE TABLE ACCOUNTANT(
-  acid INT NOT NULL,
+  acid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   email varchar(20),
   password Varchar(20),
@@ -32,7 +32,7 @@ CREATE TABLE SALARY(
 );
 
 CREATE TABLE ROOM(
-  rid INT NOT NULL,
+  rid SERIAL NOT NULL,
   room_number INT NOT NULL,
   capacity INT NOT NULL,
   building Varchar(15),
@@ -41,7 +41,7 @@ CREATE TABLE ROOM(
 );
 
 CREATE TABLE HOSPITAL_ADMINISTRATOR (
-  adid INT NOT NULL,
+  adid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   email Varchar(20) NOT NULL,
   password Varchar(20) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE INVENTORY(
 
 
 CREATE TABLE LABORATORY_ASSISTANT (
-  aid INT NOT NULL,
+  aid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   email Varchar(20) NOT NULL,
   password Varchar(20) NOT NULL, 
@@ -69,7 +69,7 @@ CREATE TABLE LABORATORY_ASSISTANT (
 );
 
 CREATE TABLE SYSTEM_ADMINISTRATOR(
-  said INT NOT NULL, 
+  said SERIAL NOT NULL, 
   name Varchar(50) NOT NULL,
   email Varchar(20) NOT NULL,
   password Varchar(20) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE SYSTEM_ADMINISTRATOR(
 );
 
 CREATE TABLE DOCTOR(
-  did Int NOT NULL,
+  did SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   speciality Varchar(50) NOT NULL,
   email Varchar(20) NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE DOCTOR(
 );
 
 CREATE TABLE NURSE(
-  nid Int NOT NULL,
+  nid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   email Varchar(20) NOT NULL,
   password Varchar(20) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE NURSE(
 );
 
 CREATE TABLE PAYMENT(
-  paid Int NOT NULL,
+  paid SERIAL NOT NULL,
   amount Int,
   service Varchar(30) NOT NULL,
   date Date NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE PAYMENT(
 
 CREATE TABLE SCHEDULE(
   --added attribute that is not in the diagram
-  schid Int NOT NULL,
+  schid SERIAL NOT NULL,
   description Text,
   date_time date NOT NULL,
   id1 Int,--reference
@@ -116,13 +116,13 @@ CREATE TABLE SCHEDULE(
 );
 
 CREATE TABLE LAB(
-  lid Int NOT NULL,
+  lid SERIAL NOT NULL,
   room_number Int NOT NULL,
   PRIMARY KEY(lid)
 );
 
 CREATE TABLE TEST_RESULTS(
-  tid Int NOT NULL,
+  tid SERIAL NOT NULL,
   result_file Varchar(30) NOT NULL,
   PRIMARY KEY(tid) --partial
 );

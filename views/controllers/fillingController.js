@@ -1,6 +1,6 @@
 import FillingModel from '../models/fillingModel.js';
 
-export default class QueryController{
+export default class FillingController{
     constructor(){
         this.model = new FillingModel();
     }
