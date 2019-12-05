@@ -48,8 +48,8 @@ CREATE TABLE HOSPITAL_ADMINISTRATOR (
 );
 
 CREATE TABLE INVENTORY(
-  iid INT NOT NULL,
-  name Varchar(20) NOT NULL,
+  iid SERIAL NOT NULL,
+  name Varchar(100) NOT NULL,
   price INT NOT NULL,
   amount INT NOT NULL,
   amount_paid INT NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE LAB(
 
 CREATE TABLE TEST_RESULTS(
   tid SERIAL NOT NULL,
-  result_file Varchar(30) NOT NULL,
+  result_file Varchar(50) NOT NULL,
   PRIMARY KEY(tid) --partial
 );
 
@@ -145,7 +145,7 @@ CREATE TABLE MAKES_A_PAYMENT(
 CREATE TABLE WRITES_MESSAGE(
   patient_id INT NOT NULL,--n-n
   doctor_id INT NOT NULL,
-  text_message text NOT NULL,
+ text_message text NOT NULL,
   FOREIGN KEY(patient_id) REFERENCES PATIENT (pid),
   FOREIGN KEY(doctor_id) REFERENCES DOCTOR (did)  
 );

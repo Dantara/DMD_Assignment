@@ -1,7 +1,8 @@
 from shutil import copyfile
 from models.rootModel import RootModel
 from faker import Faker
-from faker.providers import phone_number, profile, lorem
+from faker.providers import phone_number, profile, lorem, date_time
+from support.data import medicines
 import random
 
 class FillingModel(RootModel):
@@ -13,9 +14,47 @@ class FillingModel(RootModel):
         self.conn.autocommit = True
         self.faker = Faker()
         self.faker.add_provider(profile)
+        self.faker.add_provider(date_time)
         self.faker.add_provider(lorem)
         self.faker_RU = Faker('ru_RU')
         self.faker_RU.add_provider(phone_number)
+        self.dict_db = {}
+
+    def init_dict_db(self):
+        self.dict_db = {
+            'patient': [],
+            'accountant': [],
+            'salary': [],
+            'room': [],
+            'hospital_administrator': [],
+            'inventory': [],
+            'laboratory_assistant': [],
+            'system_administrator': [],
+            'doctor': [],
+            'nurse': [],
+            'payment': [],
+            'schedule': [],
+            'lab': [],
+            'test_results': [],
+            'checks_medical_history': [],
+            'sends_receipt': [],
+            'makes_a_payment': [],
+            'writes_message': [],
+            'makes_an_appointment': [],
+            'notifies': [],
+            'occupies': [],
+            'schedule_cleaning': [],
+            'is_ready': [],
+            'notifies_doctor': [],
+            'notifies_nurse': [],
+            'books_room': [],
+            'doctor_makes_an_appointment': [],
+            'enrolls': [],
+            'generates_results': [],
+            'makes_tests': [],
+            'notifies_lab_assistant': [],
+            'writes_message_nurse': []
+        }
 
     def copy_gen_file(self):
         copyfile(self.gen_file, self.output_file)
@@ -34,12 +73,12 @@ class FillingModel(RootModel):
         sql = "INSERT INTO " + table_name + " ("
         for key in dictionary:
             sql = sql + "" + key + ", "
-        sql = sql[:-2]
-        sql += ') VALUES ('
+            sql = sql[:-2]
+            sql += ') VALUES ('
         for key in dictionary:
             sql = sql + "'" + str(dictionary[key]) + "', "
-        sql = sql[:-2]
-        sql += ");\n"
+            sql = sql[:-2]
+            sql += ");\n"
         return sql
 
     def patient(self, rooms):
@@ -64,7 +103,7 @@ class FillingModel(RootModel):
 
     def doctor(self):
         specialties = ['anesthesiology', 'dermatology', 'diagnostic radiology',
-            'emergency medicine', 'family medicine', 'neurology', 'pediatrics']
+                       'emergency medicine', 'family medicine', 'neurology', 'pediatrics']
         d = self.person()
         d['speciality'] = random.choice(specialties)
         return d
@@ -74,6 +113,76 @@ class FillingModel(RootModel):
         s['amount'] = random.randint(min_s, max_s)
         s['payed'] = random.choice([True, False])
         return s
+
+    def inventory(self):
+        i = {}
+        i['name'] = random.choice(medicines())
+        i['price'] = random.randint(100, 4000)
+        amount = random.randint(0, 100)
+        i['amount'] = amount
+        i['amount_paid'] = random.randint(0, amount)
+        return i
+
+    def payment(self, min_s, max_s):
+        p = {}
+        p['amount'] = random.randint(min_s, max_s)
+        services = ['doctor', 'nurse', 'administrator', 'assistant']
+        p['service'] = random.choice(services)
+        p['date'] = self.faker.date(pattern='%Y-%m-%d', end_datetime=None)
+        return p
+
+    def lab(self, rooms):
+        l = {'room_number': random.randint(1, rooms)}
+        return l
+
+    def test_results(self):
+        tr = {'result_file': '/results/' + self.faker.pystr(min_chars=4, max_chars=10) + '.pdf'}
+        return tr
+
+    def checks_medical_history(self, patients, doctors):
+        cmh = {}
+        cmh['patient_id'] = random.randint(1, patients)
+        cmh['doctor_id'] = random.randint(1, doctors)
+        return cmh
+
+    def sends_receipt(self, patients, accountants):
+        sr = {}
+        sr['patient_id'] = random.randint(1, patients)
+        sr['doctor_id'] = random.randint(1, doctors)
+        sr['receipt'] = random.choice(medicines())
+        return sr
+
+    def writes_message(self, patients, doctors):
+        wr = {}
+        wr['patient_id'] = random.randint(1, patients)
+        wr['doctor_id'] = random.randint(1, doctors)
+        wr['text_message'] = self.faker.text(max_nb_chars=80, ext_word_list=None)
+        return wr
+
+    def enrolls(self, admins, inventories):
+        e = {}
+        e['admin_id'] = random.randint(1, admins)
+        e['inventory_id'] = random.randint(1, inventories)
+        return e
+
+    def generates_results(self, labs, tests):
+        r = {}
+        r['lab_id'] = random.randint(1, labs)
+        r['test_results_id'] = random.randint(1, tests)
+        return r
+
+    def makes_tests(self, labs, assistants):
+        t = {}
+        t['labs_id'] = random.randint(1, labs)
+        t['lab_assistant_id'] = random.randint(1, assistants)
+        return t
+
+    def writes_message(self, nurses, doctors):
+        wr = {}
+        wr['nurse_id'] = random.randint(1, nurses)
+        wr['doctor_id'] = random.randint(1, doctors)
+        wr['text_message'] = self.faker.text(max_nb_chars=80, ext_word_list=None)
+        return wr
 
     def add_accountant(self, p):
         a = {'name': p['name'], 'email': p['email'], 'password': p['password']}
