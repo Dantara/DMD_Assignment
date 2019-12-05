@@ -73,12 +73,12 @@ class FillingModel(RootModel):
         sql = "INSERT INTO " + table_name + " ("
         for key in dictionary:
             sql = sql + "" + key + ", "
-            sql = sql[:-2]
-            sql += ') VALUES ('
+        sql = sql[:-2]
+        sql += ') VALUES ('
         for key in dictionary:
             sql = sql + "'" + str(dictionary[key]) + "', "
-            sql = sql[:-2]
-            sql += ");\n"
+        sql = sql[:-2]
+        sql += ");\n"
         return sql
 
     def patient(self, rooms):
@@ -186,63 +186,60 @@ class FillingModel(RootModel):
 
     def add_accountant(self, p):
         a = {'name': p['name'], 'email': p['email'], 'password': p['password']}
-        f = open(self.output_file, 'a')
-        sql = self.dict_to_sql(a, 'ACCOUNTANT')
-        f.write(sql)
-        f.close()
+        self.dict_db['accountant'].append(a)
 
     def add_n_patients(self, n, rooms):
         for i in range(0, n):
             p = self.patient(rooms)
             self.add_accountant(p)
-            f = open(self.output_file, 'a')
-            sql = self.dict_to_sql(p, 'PATIENT')
-            f.write(sql)
-            f.close()
+            self.dict_db['patient'].append(p)
 
     def add_n_h_admins(self, n):
         for i in range(0, n):
             p = self.person()
             self.add_accountant(p)
-            f = open(self.output_file, 'a')
-            sql = self.dict_to_sql(p, 'HOSPITAL_ADMINISTRATOR')
-            f.write(sql)
-            f.close()
+            self.dict_db['hospital_administrator'].append(p)
 
     def add_n_assistants(self, n):
         for i in range(0, n):
             p = self.person()
             self.add_accountant(p)
-            f = open(self.output_file, 'a')
-            sql = self.dict_to_sql(p, 'LABORATORY_ASSISTANT')
-            f.write(sql)
-            f.close()
+            self.dict_db['laboratory_assistant'].append(p)
 
     def add_n_s_admins(self, n):
         for i in range(0, n):
             p = self.person()
             self.add_accountant(p)
-            f = open(self.output_file, 'a')
-            sql = self.dict_to_sql(p, 'SYSTEM_ADMINISTRATOR')
-            f.write(sql)
-            f.close()
+            self.dict_db['system_administrator'].append(p)
 
     def add_n_doctors(self, n):
         for i in range(0, n):
             p = self.doctor()
             self.add_accountant(p)
-            f = open(self.output_file, 'a')
-            sql = self.dict_to_sql(p, 'DOCTOR')
-            f.write(sql)
-            f.close()
+            self.dict_db['doctor'].append(p)
 
     def add_n_nurses(self, n):
         for i in range(0, n):
             p = self.person()
             self.add_accountant(p)
-            f = open(self.output_file, 'a')
-            sql = self.dict_to_sql(p, 'NURSE')
-            f.write(sql)
-            f.close()
+            self.dict_db['nurse'].append(p)
+
+    def dist_db_to_sql_array(self):
+        arr = []
+        for table in self.dict_db:
+            for elm in self.dict_db[table]:
+                sql = self.dict_to_sql(elm, table)
+                arr.append(sql)
+        return arr
+
+    def append_sql_array(self, arr):
+        f = open(self.output_file, 'a')
+        for elm in arr:
+            f.write(elm)
+        f.close()
+
+    def commit(self):
+        arr = self.dist_db_to_sql_array()
+        self.append_sql_array(arr)
 
 
