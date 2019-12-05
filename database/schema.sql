@@ -11,8 +11,7 @@ CREATE TABLE PATIENT(
   email varchar(50),
   password Varchar(20),
   PRIMARY KEY(pid),
-  UNIQUE(medical_history),
-  UNIQUE(email)
+  UNIQUE(medical_history)
 );
 
 CREATE TABLE ACCOUNTANT(
@@ -20,15 +19,14 @@ CREATE TABLE ACCOUNTANT(
   name Varchar(50) NOT NULL,
   email varchar(50),
   password Varchar(20),
-  PRIMARY KEY(acid),
-  UNIQUE(email)
+  PRIMARY KEY(acid)
 );
 
 CREATE TABLE SALARY(
-  wid INT NOT NULL,
+  wid SERIAL NOT NULL,
   amount INT NOT NULL,
-  payed INT NOT NULL,
-  PRIMARY KEY(wid) --partial 
+  payed BOOLEAN NOT NULL,
+  PRIMARY KEY(wid) --partial
 );
 
 CREATE TABLE ROOM(
@@ -46,7 +44,6 @@ CREATE TABLE HOSPITAL_ADMINISTRATOR (
   email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
   PRIMARY KEY(adid),
-  UNIQUE(email),
   UNIQUE(adid)
 );
 
@@ -56,16 +53,15 @@ CREATE TABLE INVENTORY(
   price INT NOT NULL,
   amount INT NOT NULL,
   amount_paid INT NOT NULL,
-  PRIMARY KEY(iid));
-
+  PRIMARY KEY(iid)
+);
 
 CREATE TABLE LABORATORY_ASSISTANT (
   aid SERIAL NOT NULL,
   name Varchar(50) NOT NULL,
   email Varchar(50) NOT NULL,
-  password Varchar(20) NOT NULL, 
-  PRIMARY KEY(aid),
-  UNIQUE(email)
+  password Varchar(20) NOT NULL,
+  PRIMARY KEY(aid)
 );
 
 CREATE TABLE SYSTEM_ADMINISTRATOR(
@@ -73,8 +69,7 @@ CREATE TABLE SYSTEM_ADMINISTRATOR(
   name Varchar(50) NOT NULL,
   email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
-  PRIMARY KEY(said),
-  UNIQUE(email)
+  PRIMARY KEY(said)
 );
 
 CREATE TABLE DOCTOR(
@@ -83,8 +78,7 @@ CREATE TABLE DOCTOR(
   speciality Varchar(50) NOT NULL,
   email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
-  PRIMARY KEY(did),
-  UNIQUE(email)
+  PRIMARY KEY(did)
 );
 
 CREATE TABLE NURSE(
@@ -92,8 +86,7 @@ CREATE TABLE NURSE(
   name Varchar(50) NOT NULL,
   email Varchar(50) NOT NULL,
   password Varchar(20) NOT NULL,
-  PRIMARY KEY(nid),
-  UNIQUE(email)
+  PRIMARY KEY(nid)
 );
 
 CREATE TABLE PAYMENT(

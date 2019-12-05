@@ -69,6 +69,12 @@ class FillingModel(RootModel):
         d['speciality'] = random.choice(specialties)
         return d
 
+    def salary(self, min_s, max_s):
+        s = {}
+        s['amount'] = random.randint(min_s, max_s)
+        s['payed'] = random.choice([True, False])
+        return s
+
     def add_accountant(self, p):
         a = {'name': p['name'], 'email': p['email'], 'password': p['password']}
         f = open(self.output_file, 'a')

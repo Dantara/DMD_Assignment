@@ -32,10 +32,10 @@ export default class FillingView{
     }
 
     setGenerate(){
-        let data = this.constructData();
         let self = this;
 
         this.generate_el.onclick = () => {
+            let data = self.constructData();
             self.controller.generate(data);
         };
     }

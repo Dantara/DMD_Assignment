@@ -15,6 +15,7 @@ class FillingController:
         self.model.add_n_s_admins(int(s_admins))
         self.model.add_n_doctors(int(doctors))
         self.model.add_n_nurses(int(nurses))
+        print(patients)
         return {"data": "generate"}
 
     def execute(self):
