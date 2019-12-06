@@ -177,7 +177,7 @@ class FillingModel(RootModel):
         t['lab_assistant_id'] = random.randint(1, assistants)
         return t
 
-    def writes_message(self, nurses, doctors):
+    def writes_message_nurse(self, nurses, doctors):
         wr = {}
         wr['nurse_id'] = random.randint(1, nurses)
         wr['doctor_id'] = random.randint(1, doctors)
@@ -223,6 +223,66 @@ class FillingModel(RootModel):
             p = self.person()
             self.add_accountant(p)
             self.dict_db['nurse'].append(p)
+
+    def add_n_salary(self, n, min_s, max_s):
+        for i in range(0, n):
+            s = self.salary(min_s, max_s)
+            self.dict_db['salary'].append(s)
+
+    def add_n_inventories(self, n):
+        for i in range(0, n):
+            inv = self.inventory()
+            self.dict_db['inventory'].append(inv)
+
+    def add_n_payments(self, n, min_s, max_s):
+        for i in range(0, n):
+            p = self.payment(min_s, max_s)
+            self.dict_db['payment'].append(p)
+
+    def add_n_labs(self, n, rooms):
+        for i in range(0, n):
+            l = self.lab(rooms)
+            self.dict_db['lab'].append(l)
+
+    def add_n_test_results(self, n):
+        for i in range(0, n):
+            tr = self.test_results()
+            self.dict_db['test_results'].append(tr)
+
+    def add_n_checks_medical_history(self, n , patients, doctors):
+        for i in range(0, n):
+            cmh = self.checks_medical_history(patients, doctors)
+            self.dict_db['checks_medical_history'].append(cmh)
+
+    def add_n_sends_receipt(self, patients, accountants):
+        for i in range(0, n):
+            sr = self.sends_receipt(patients, accountants)
+            self.dict_db['sends_receipt'].append(sr)
+
+    def add_n_writes_message(self, patients, doctors):
+        for i in range(0, n):
+            wm = self.writes_message(self, patients, doctors)
+            self.dict_db['writes_message'].append(wm)
+
+    def add_n_enrolls(self, admins, inventories):
+        for i in range(0, n):
+            e = self.enrolls(self, admins, inventories)
+            self.dict_db['enrolls'].append(e)
+
+    def add_n_generates_results(self, labs, tests):
+        for i in range(0, n):
+            gr = self.generates_results(labs, tests)
+            self.dict_db['generates_results'].append(gr)
+
+    def add_n_makes_tests(self, labs, assistants):
+        for i in range(0, n):
+            mt = self.makes_tests(labs, assistants)
+            self.dict_db['makes_tests'].append(mt)
+
+    def add_n_writes_message_nurse(self, nurses, doctors):
+        for i in range(0, n):
+            wm = self.writes_message(self, nurses, doctors)
+            self.dict_db['writes_message_nurse'].append(wm)
 
     def dist_db_to_sql_array(self):
         arr = []
