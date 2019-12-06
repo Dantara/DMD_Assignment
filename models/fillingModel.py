@@ -11,7 +11,6 @@ class FillingModel(RootModel):
         self.gen_file = 'database/schema.sql'
         self.erase_file = 'database/erase.sql'
         self.output_file = 'output/dump.sql'
-        self.conn.autocommit = True
         self.faker = Faker()
         self.faker.add_provider(profile)
         self.faker.add_provider(date_time)

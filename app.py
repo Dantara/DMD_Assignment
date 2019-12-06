@@ -7,11 +7,11 @@ from controllers.readController import ReadController
 
 router = hug.route.API(__name__)
 
-router.get('/query1')(QueryController.query1)
-router.get('/query2')(QueryController.query2)
-router.get('/query3')(QueryController.query3)
-router.get('/query4')(QueryController.query4)
-router.get('/query5')(QueryController.query5)
+router.post('/query1')(QueryController().query1)
+router.get('/query2')(QueryController().query2)
+router.post('/query3')(QueryController().query3)
+router.get('/query4')(QueryController().query4)
+router.get('/query5')(QueryController().query5)
 
 router.post('/generate')(FillingController().generate)
 router.get('/execute')(FillingController().execute)

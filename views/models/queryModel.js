@@ -4,26 +4,27 @@ export default class QueryModel{
     constructor(){
         this.rootModel = new RootModel();
         this.sender = this.rootModel.sendGet;
+        this.postSender = this.rootModel.sendPost;
     }
 
-    sendQuery1(){
-        this.sender('/query1', null);
+    sendQuery1(data, callback){
+        this.postSender('/query1', data, callback);
     }
 
-    sendQuery2(){
-        this.sender('/query2', null);
+    sendQuery2(callback){
+        this.sender('/query2', callback);
     }
 
-    sendQuery3(){
-        this.sender('/query3', null);
+    sendQuery3(data, callback){
+        this.postSender('/query3', data, callback);
     }
 
-    sendQuery4(){
-        this.sender('/query4', null);
+    sendQuery4(callback){
+        this.sender('/query4', callback);
     }
 
-    sendQuery5(){
-        this.sender('/query5', null);
+    sendQuery5(callback){
+        this.sender('/query5', callback);
     }
 
 }

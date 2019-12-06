@@ -19,155 +19,188 @@
                     </form>
                 </div>
             </div>
-            <div id="queries" class="row">
-                <div class="col-md-12 column">
+            <div id="queries">
+                <div class="row">
+                <div class="col-md-12">
                     <h2>Predefined queries:</h2>
+                </div>
+                <div class="col-md-2 offset-sm-1 column">
                     <form>
-                            <div class="form-group form-inline">
-                                <label for="">ID:</label>
-                                <input id="select1_id" type="text" value="35" class="form-control" />
-                            </div>
-                            <div class="form-group form-inline">
-                                <label for="">Date:</label>
-                                <input id="select1_date-time" type="text" value="35" class="form-control" />
-                            </div>
-                            <div class="form-group form-inline">
-                                <a id="query1" class="btn btn-primary my_btn">Select N1</a>
-                            </div>
+                        <div class="form-group form-inline">
+                            <label for="">ID:</label>
+                            <input id="query1_id" type="text" value="13" class="form-control" />
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="">Date:</label>
+                            <input id="query1_given_date" type="text" value="2019-05-19" class="form-control" />
+                        </div>
+                        <div class="form-group form-inline">
+                            <a id="query1" class="btn btn-primary my_btn">Select N1</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2 column">
+                    <form>
                         <a id="query2" class="btn btn-primary my_btn">Select N2</a>
-                        <a id="query3" class="btn btn-primary my_btn">Select N3</a>
+                    </form>
+                </div>
+                <div class="col-md-2 column">
+                    <form>
+                        <div class="form-group form-inline">
+                            <label for="">Date:</label>
+                            <input id="query2_given_date" type="text" value="2019-05-19" class="form-control" />
+                        </div>
+                        <div class="form-group form-inline">
+                            <a id="query3" class="btn btn-primary my_btn">Select N3</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2 column">
+                    <form>
                         <a id="query4" class="btn btn-primary my_btn">Select N4</a>
+                    </form>
+                </div>
+                <div class="col-md-2 column">
+                    <form>
                         <a id="query5" class="btn btn-primary my_btn">Select N5</a>
                     </form>
                 </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col">
+                        <table id="query-table" class="table">
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div id="filling" class="row">
+        </div>
+        <div id="filling" class="row">
+            <div class="col-md-4 offset-sm-4 column">
+                <h2>Table filling:</h2>
+                <form>
+                    <div class="form-group form-inline">
+                        <label>Number of patients: </label>
+                        <input id="patients" type="text" value="35" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of hospital administrators: </label>
+                        <input id="h_admins" type="text" value="3" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of laboratory assistants: </label>
+                        <input id="assistants" type="text" value="5" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of system administrators: </label>
+                        <input id="s_admins" type="text" value="4" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of doctors: </label>
+                        <input id="doctors" type="text" value="20" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of nurses: </label>
+                        <input id="nurses" type="text" value="30" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of rooms: </label>
+                        <input id="rooms" type="text" value="500" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Minimal salary: </label>
+                        <input id="min_salary" type="text" value="30000" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Maximal salary: </label>
+                        <input id="max_salary" type="text" value="100000" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of salaries: </label>
+                        <input id="salaries" type="text" value="50" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of inventories: </label>
+                        <input id="inventories" type="text" value="100" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of payments: </label>
+                        <input id="payments" type="text" value="60" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of labs: </label>
+                        <input id="labs" type="text" value="30" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of test results: </label>
+                        <input id="results" type="text" value="20" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of medical history checks: </label>
+                        <input id="checks" type="text" value="5" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of send receipts: </label>
+                        <input id="receipts" type="text" value="10" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of wroten messages: </label>
+                        <input id="messages" type="text" value="50" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of enrolls: </label>
+                        <input id="enrolls" type="text" value="10" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of result generations: </label>
+                        <input id="results_gen" type="text" value="5" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of test making: </label>
+                        <input id="test" type="text" value="5" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of nurse messages: </label>
+                        <input id="nurse_messages" type="text" value="50" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of schedules: </label>
+                        <input id="schedule" type="text" value="1000" class="form-control" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Number of requests: </label>
+                        <input id="requests" type="text" value="10" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <a id="generate" class="btn btn-primary my_btn">Generate SQL file </a>
+                        <a id="execute" class="btn btn-primary my_btn">Execute SQL file </a>
+                        <a id="erase" class="btn btn-danger my_btn">Erase database</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="read" class="row">
+            <div id="table-exist" class="table-div">
                 <div class="col-md-4 offset-sm-4 column">
-                    <h2>Table filling:</h2>
+                    <h2>Table:</h2>
                     <form>
-                        <div class="form-group form-inline">
-                            <label>Number of patients: </label>
-                            <input id="patients" type="text" value="35" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of hospital administrators: </label>
-                            <input id="h_admins" type="text" value="3" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of laboratory assistants: </label>
-                            <input id="assistants" type="text" value="5" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of system administrators: </label>
-                            <input id="s_admins" type="text" value="4" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of doctors: </label>
-                            <input id="doctors" type="text" value="20" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of nurses: </label>
-                            <input id="nurses" type="text" value="30" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of rooms: </label>
-                            <input id="rooms" type="text" value="500" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Minimal salary: </label>
-                            <input id="min_salary" type="text" value="30000" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Maximal salary: </label>
-                            <input id="max_salary" type="text" value="100000" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of salaries: </label>
-                            <input id="salaries" type="text" value="50" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of inventories: </label>
-                            <input id="inventories" type="text" value="100" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of payments: </label>
-                            <input id="payments" type="text" value="60" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of labs: </label>
-                            <input id="labs" type="text" value="30" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of test results: </label>
-                            <input id="results" type="text" value="20" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of medical history checks: </label>
-                            <input id="checks" type="text" value="5" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of send receipts: </label>
-                            <input id="receipts" type="text" value="10" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of wroten messages: </label>
-                            <input id="messages" type="text" value="50" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of enrolls: </label>
-                            <input id="enrolls" type="text" value="10" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of result generations: </label>
-                            <input id="results_gen" type="text" value="5" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of test making: </label>
-                            <input id="test" type="text" value="5" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of nurse messages: </label>
-                            <input id="nurse_messages" type="text" value="50" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of schedules: </label>
-                            <input id="schedule" type="text" value="1000" class="form-control" />
-                        </div>
-                        <div class="form-group form-inline">
-                            <label>Number of requests: </label>
-                            <input id="requests" type="text" value="10" class="form-control" />
-                        </div>
                         <div class="form-group">
-                            <a id="generate" class="btn btn-primary my_btn">Generate SQL file </a>
-                            <a id="execute" class="btn btn-primary my_btn">Execute SQL file </a>
-                            <a id="erase" class="btn btn-danger my_btn">Erase database</a>
+                            <select class="form-control" id="table-select" name="">
+                            </select>
                         </div>
                     </form>
                 </div>
+                <table id="read-table" class="table">
+                </table>
             </div>
-            <div id="read" class="row">
-                <div id="table-exist" class="table-div">
-                    <div class="col-md-4 offset-sm-4 column">
-                        <h2>Table:</h2>
-                        <form>
-                            <div class="form-group">
-                                <select class="form-control" id="table-select" name="">
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <table id="read-table" class="table">
-                    </table>
-                </div>
-                <div id="table-not-exist" class="col-md-4 offset-sm-4 column">
-                    <h2>There are no tables in database</h2>
-                </div>
+            <div id="table-not-exist" class="col-md-4 offset-sm-4 column">
+                <h2>There are no tables in database</h2>
             </div>
-            <div id="config" class="row">
-                <div class="col-md-4 offset-sm-4 column">
-                    <h2>Set configuration:</h2>
-                </div>
+        </div>
+        <div id="config" class="row">
+            <div class="col-md-4 offset-sm-4 column">
+                <h2>Set configuration:</h2>
             </div>
+        </div>
         </div>
         <script src="static/bundle.js"></script>
     </body>

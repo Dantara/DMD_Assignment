@@ -13,4 +13,5 @@ class RootModel:
             password = self.conn_config['password'],
             port = self.conn_config['port'],
         )
+        self.conn.autocommit = True
 
