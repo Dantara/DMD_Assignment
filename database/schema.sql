@@ -130,7 +130,7 @@ CREATE TABLE CHECKS_MEDICAL_HISTORY(
 CREATE TABLE SENDS_RECEIPT(
   patient_id INT NOT NULL,--n-1
   accountant_id INT NOT NULL,
-  receipt Varchar(30),
+  receipt Varchar(100),
   FOREIGN KEY(patient_id) REFERENCES PATIENT (pid),
   FOREIGN KEY(accountant_id) REFERENCES ACCOUNTANT (acid)
 );

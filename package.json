@@ -4,13 +4,15 @@
     "description": "Web interface for queries",
     "main": "app.js",
     "scripts": {
-        "build": "webpack --config webpack.config.js"
+        "build": "webpack --config webpack.config.js",
+        "stats": "cloc . --exclude-dir=__pycache__,node_modules,env"
     },
     "author": "Dantara",
     "license": "ISC",
     "dependencies": {
         "autoprefixer": "^9.7.2",
         "bootstrap": "^4.3.1",
+        "cloc": "^2.5.0",
         "css-loader": "^3.2.0",
         "jquery": "^3.4.1",
         "json-js": "^1.1.2",

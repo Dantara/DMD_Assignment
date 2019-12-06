@@ -12,6 +12,21 @@ export default class FillingView{
         this.nurses_el = document.getElementById('nurses');
         this.rooms_el = document.getElementById('rooms');
 
+        this.min_salary_el = document.getElementById('min_salary');
+        this.max_salary_el = document.getElementById('max_salary');
+        this.salaries_el = document.getElementById('salaries');
+        this.inventories_el = document.getElementById('inventories');
+        this.payments_el = document.getElementById('payments');
+        this.labs_el = document.getElementById('labs');
+        this.results_el = document.getElementById('results');
+        this.checks_el = document.getElementById('checks');
+        this.receipts_el = document.getElementById('receipts');
+        this.messages_el = document.getElementById('messages');
+        this.enrolls_el = document.getElementById('enrolls');
+        this.results_gen_el = document.getElementById('results_gen');
+        this.test_el = document.getElementById('test');
+        this.nurse_messages_el = document.getElementById('nurse_messages');
+
         this.generate_el = document.getElementById('generate');
         this.execute_el = document.getElementById('execute');
         this.erase_el = document.getElementById('erase');
@@ -26,6 +41,20 @@ export default class FillingView{
             doctors: this.doctors_el.value,
             nurses: this.nurses_el.value,
             rooms: this.rooms_el.value,
+            min_salary: this.min_salary_el.value,
+            max_salary: this.max_salary_el.value,
+            salaries: this.salaries_el.value,
+            inventories: this.inventories_el.value,
+            payments: this.payments_el.value,
+            labs: this.labs_el.value,
+            results: this.results_el.value,
+            checks: this.checks_el.value,
+            receipts: this.receipts_el.value,
+            messages: this.messages_el.value,
+            enrolls: this.enrolls_el.value,
+            results_gen: this.results_gen_el.value,
+            test: this.test_el.value,
+            nurse_messages: this.nurse_messages_el.value
         };
 
         return data;
