@@ -26,6 +26,8 @@ export default class FillingView{
         this.results_gen_el = document.getElementById('results_gen');
         this.test_el = document.getElementById('test');
         this.nurse_messages_el = document.getElementById('nurse_messages');
+        this.schedule_el = document.getElementById('schedule');
+        this.requests_el = document.getElementById('requests');
 
         this.generate_el = document.getElementById('generate');
         this.execute_el = document.getElementById('execute');
@@ -54,7 +56,9 @@ export default class FillingView{
             enrolls: this.enrolls_el.value,
             results_gen: this.results_gen_el.value,
             test: this.test_el.value,
-            nurse_messages: this.nurse_messages_el.value
+            nurse_messages: this.nurse_messages_el.value,
+            schedule: this.schedule_el.value,
+            requests: this.requests_el.value
         };
 
         return data;

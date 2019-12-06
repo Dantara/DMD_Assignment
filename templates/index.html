@@ -23,7 +23,17 @@
                 <div class="col-md-12 column">
                     <h2>Predefined queries:</h2>
                     <form>
-                        <a id="query1" class="btn btn-primary my_btn">Select N1</a>
+                            <div class="form-group form-inline">
+                                <label for="">ID:</label>
+                                <input id="select1_id" type="text" value="35" class="form-control" />
+                            </div>
+                            <div class="form-group form-inline">
+                                <label for="">Date:</label>
+                                <input id="select1_date-time" type="text" value="35" class="form-control" />
+                            </div>
+                            <div class="form-group form-inline">
+                                <a id="query1" class="btn btn-primary my_btn">Select N1</a>
+                            </div>
                         <a id="query2" class="btn btn-primary my_btn">Select N2</a>
                         <a id="query3" class="btn btn-primary my_btn">Select N3</a>
                         <a id="query4" class="btn btn-primary my_btn">Select N4</a>
@@ -118,6 +128,14 @@
                         <div class="form-group form-inline">
                             <label>Number of nurse messages: </label>
                             <input id="nurse_messages" type="text" value="50" class="form-control" />
+                        </div>
+                        <div class="form-group form-inline">
+                            <label>Number of schedules: </label>
+                            <input id="schedule" type="text" value="1000" class="form-control" />
+                        </div>
+                        <div class="form-group form-inline">
+                            <label>Number of requests: </label>
+                            <input id="requests" type="text" value="10" class="form-control" />
                         </div>
                         <div class="form-group">
                             <a id="generate" class="btn btn-primary my_btn">Generate SQL file </a>

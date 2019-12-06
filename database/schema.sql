@@ -153,7 +153,7 @@ CREATE TABLE WRITES_MESSAGE(
 CREATE TABLE MAKES_A_REQUEST(
   patient_id INT NOT NULL,--n-n
   nurse_id INT NOT NULL,
-  date_time time NOT NULL,
+  date_time date NOT NULL,
   FOREIGN KEY(patient_id) REFERENCES PATIENT (pid),
   FOREIGN KEY(nurse_id) REFERENCES NURSE (nid)  
 );

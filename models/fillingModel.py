@@ -40,10 +40,11 @@ class FillingModel(RootModel):
             'sends_receipt': [],
             'makes_a_payment': [],
             'writes_message': [],
+            'makes_a_request': [],
             'makes_an_appointment': [],
             'notifies': [],
             'occupies': [],
-            'schedule_cleaning': [],
+            'schedules_cleaning': [],
             'is_ready': [],
             'notifies_doctor': [],
             'notifies_nurse': [],
@@ -123,6 +124,12 @@ class FillingModel(RootModel):
         i['amount_paid'] = random.randint(0, amount)
         return i
 
+    def makes_a_payment(self, payment_id, patients):
+        mp = {}
+        mp['payment_id'] = payment_id
+        mp['patient_id'] = random.randint(1, patients)
+        return mp
+
     def payment(self, min_s, max_s):
         p = {}
         p['amount'] = random.randint(min_s, max_s)
@@ -178,12 +185,97 @@ class FillingModel(RootModel):
         t['lab_assistant_id'] = random.randint(1, assistants)
         return t
 
+    def makes_an_appointment(self, patient_id, schedule_id):
+        ma = {}
+        ma['patient_id'] = patient_id
+        ma['schedule_id'] = schedule_id
+        return ma
+
+    def schedule(self, patients, doctors, rooms):
+        s = {}
+        s['description'] = self.faker.text(max_nb_chars=80, ext_word_list=None)
+        date = self.faker.date_this_year(before_today=True, after_today=False)
+        s['date_time'] = '{:%Y-%m-%d}'.format(date)
+        s['id1'] = random.randint(1, patients)
+        s['id2'] = random.randint(1, doctors)
+        s['room'] = random.randint(1, rooms)
+        return s
+
+    def room(self, room_n):
+        r = {}
+        r['room_number'] = room_n
+        r['capacity'] = random.choice([2, 5, 10, 50, 100])
+        r['building'] = random.choice(['Main', 'First', 'Second', "Third"])
+        return r
+
     def writes_message_nurse(self, nurses, doctors):
         wr = {}
         wr['nurse_id'] = random.randint(1, nurses)
         wr['doctor_id'] = random.randint(1, doctors)
         wr['text_message'] = self.faker.text(max_nb_chars=80, ext_word_list=None)
         return wr
+
+    def makes_a_request(self, patients, nurses):
+        mr = {}
+        mr['patient_id'] = random.randint(1, patients)
+        mr['nurse_id'] = random.randint(1, nurses)
+        date = self.faker.date_this_year(before_today=True, after_today=False)
+        mr['date_time'] = '{:%Y-%m-%d}'.format(date)
+        return mr
+
+    def notifies(self, patient_id, schedule_id):
+        n = {}
+        n['patient_id'] = patient_id
+        n['schedule_id'] = schedule_id
+        return n
+
+    def occupies(self, schedule_id, room_id):
+        o = {}
+        o['schedule_id'] = schedule_id
+        o['room_id'] = room_id
+        return o
+
+    def schedule_cleaning(self, schedule_id, admins):
+        sc = {}
+        sc['schedule_id'] = schedule_id
+        sc['admin_id'] = random.randint(1, admins)
+        return sc
+
+    def is_ready(self, schedule_id, results):
+        ir = {}
+        ir['schedule_id'] = schedule_id
+        ir['test_result_id'] = random.randint(1, results)
+        return ir
+
+    def notifies_doctor(self, schedule_id, doctor_id):
+        nd = {}
+        nd['schedule_id'] = schedule_id
+        nd['doctor_id'] = doctor_id
+        return nd
+
+    def notifies_nurse(self, schedule_id, nurses):
+        nn = {}
+        nn['schedule_id'] = schedule_id
+        nn['nurse_id'] = random.randint(1, nurses)
+        return nn
+
+    def books_room(self, schedule_id, nurses):
+        br = {}
+        br['schedule_id'] = schedule_id
+        br['nurse_id'] = random.randint(1, nurses)
+        return br
+
+    def doctor_makes_an_appointment(self, schedule_id, doctor_id):
+        dma = {}
+        dma['schedule_id'] = schedule_id
+        dma['doctor_id'] = doctor_id
+        return dma
+
+    def notifies_lab_assistant(self, assistants, schedule_id):
+        nla = {}
+        nla['lab_assistant_id'] = random.randint(1, assistants)
+        nla['schedule_id'] = schedule_id
+        return nla
 
     def add_accountant(self, p):
         a = {'name': p['name'], 'email': p['email'], 'password': p['password']}
@@ -235,10 +327,12 @@ class FillingModel(RootModel):
             inv = self.inventory()
             self.dict_db['inventory'].append(inv)
 
-    def add_n_payments(self, n, min_s, max_s):
-        for i in range(0, n):
+    def add_n_payments(self, n, min_s, max_s, patients):
+        for i in range(1, n):
             p = self.payment(min_s, max_s)
+            mp = self.makes_a_payment(i, patients)
             self.dict_db['payment'].append(p)
+            self.dict_db['makes_a_payment'].append(mp)
 
     def add_n_labs(self, n, rooms):
         for i in range(0, n):
@@ -285,6 +379,47 @@ class FillingModel(RootModel):
             wm = self.writes_message_nurse(nurses, doctors)
             self.dict_db['writes_message_nurse'].append(wm)
 
+    def add_random_schedules_cleaning(self, schedule_id, h_admins):
+        for i in range(1, random.randint(1, h_admins)):
+            sc = self.schedule_cleaning(schedule_id, h_admins)
+            self.dict_db['schedules_cleaning'].append(sc)
+
+    def add_n_schedule(self, n, patients, doctors, rooms, h_admins, results, nurses, assistants):
+        for i in range(1, n):
+            s = self.schedule(patients, doctors, rooms)
+            ma = self.makes_an_appointment(s['id1'], i)
+            n = self.notifies(s['id1'], i)
+            o = self.occupies(i, s['room'])
+            ir = self.is_ready(i, results)
+            nd = self.notifies_doctor(i, s['id2'])
+            nn = self.notifies_nurse(i, nurses)
+            br = self.books_room(i, nurses)
+            dma = self.doctor_makes_an_appointment(i, s['id2'])
+            nla = self.notifies_lab_assistant(assistants, i)
+
+            self.dict_db['schedule'].append(s)
+            self.dict_db['makes_an_appointment'].append(ma)
+            self.dict_db['notifies'].append(n)
+            self.dict_db['occupies'].append(o)
+            self.dict_db['is_ready'].append(ir)
+            self.dict_db['notifies_doctor'].append(nd)
+            self.dict_db['notifies_nurse'].append(nn)
+            self.dict_db['books_room'].append(br)
+            self.dict_db['doctor_makes_an_appointment'].append(dma)
+            self.dict_db['notifies_lab_assistant'].append(nla)
+
+            self.add_random_schedules_cleaning(i, h_admins)
+
+    def add_n_rooms(self, n):
+        for i in range(1, n+1):
+            r = self.room(i)
+            self.dict_db['room'].append(r)
+
+    def add_n_makes_a_request(self, n, patients, nurses):
+        for i in range(0, n):
+            mr = self.makes_a_request(patients, nurses)
+            self.dict_db['makes_a_request'].append(mr)
+
     def dist_db_to_sql_array(self):
         arr = []
         for table in self.dict_db:
@@ -302,5 +437,3 @@ class FillingModel(RootModel):
     def commit(self):
         arr = self.dist_db_to_sql_array()
         self.append_sql_array(arr)
-
-
